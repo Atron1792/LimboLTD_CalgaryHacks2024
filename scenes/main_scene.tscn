@@ -18,11 +18,13 @@ mob_scene = ExtResource("2_7mkrh")
 [node name="Player" parent="." instance=ExtResource("1_juyfk")]
 
 [node name="Mob" parent="." instance=ExtResource("2_7mkrh")]
+position = Vector2(184, 144)
 
 [node name="Walls" parent="." instance=ExtResource("3_lbors")]
 
 [node name="MobTimer" type="Timer" parent="."]
-wait_time = 0.5
+wait_time = 0.1
+autostart = true
 
 [node name="StartPosition" type="Marker2D" parent="."]
 position = Vector2(400, 300)
