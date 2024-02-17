@@ -1,0 +1,50 @@
+[gd_scene load_steps=5 format=3 uid="uid://byjoecq7frp25"]
+
+[ext_resource type="Script" path="res://scripts/Player.gd" id="1_gv03e"]
+[ext_resource type="Texture2D" uid="uid://dfa4ekr4xekei" path="res://icon.svg" id="2_we1ey"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4lov7"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_xsbwm"]
+
+[node name="MainScene" type="Node2D"]
+
+[node name="Player" type="CharacterBody2D" parent="."]
+position = Vector2(400, 300)
+scale = Vector2(0.3, 0.3)
+script = ExtResource("1_gv03e")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+shape = SubResource("CircleShape2D_4lov7")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
+texture = ExtResource("2_we1ey")
+
+[node name="BoundaryBottom" type="StaticBody2D" parent="."]
+position = Vector2(400, 600)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BoundaryBottom"]
+shape = SubResource("WorldBoundaryShape2D_xsbwm")
+
+[node name="BoundaryBottom2" type="StaticBody2D" parent="."]
+position = Vector2(800, 300)
+rotation = -1.5708
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BoundaryBottom2"]
+shape = SubResource("WorldBoundaryShape2D_xsbwm")
+
+[node name="BoundaryRight" type="StaticBody2D" parent="."]
+position = Vector2(0, 300)
+rotation = 1.5708
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BoundaryRight"]
+shape = SubResource("WorldBoundaryShape2D_xsbwm")
+
+[node name="BoundaryTop" type="StaticBody2D" parent="."]
+position = Vector2(400, 0)
+rotation = 3.14159
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BoundaryTop"]
+shape = SubResource("WorldBoundaryShape2D_xsbwm")
+
+[node name="EnemySpawner" type="Node2D" parent="."]
