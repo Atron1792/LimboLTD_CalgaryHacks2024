@@ -37,3 +37,5 @@ rotation = 3.14159
 shape = SubResource("WorldBoundaryShape2D_xsbwm")
 
 [node name="Mob" parent="." instance=ExtResource("2_7mkrh")]
+
+[node name="MobTimer" type="Timer" parent="."]
