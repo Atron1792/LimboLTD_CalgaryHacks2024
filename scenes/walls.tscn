@@ -1,0 +1,32 @@
+[gd_scene load_steps=2 format=3 uid="uid://cs5oe4dx2kfk6"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_pxi20"]
+
+[node name="Walls" type="Node2D"]
+
+[node name="BoundaryBottom" type="StaticBody2D" parent="."]
+position = Vector2(400, 600)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BoundaryBottom"]
+shape = SubResource("WorldBoundaryShape2D_pxi20")
+
+[node name="BoundaryBottom2" type="StaticBody2D" parent="."]
+position = Vector2(800, 300)
+rotation = -1.5708
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BoundaryBottom2"]
+shape = SubResource("WorldBoundaryShape2D_pxi20")
+
+[node name="BoundaryRight" type="StaticBody2D" parent="."]
+position = Vector2(0, 300)
+rotation = 1.5708
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BoundaryRight"]
+shape = SubResource("WorldBoundaryShape2D_pxi20")
+
+[node name="BoundaryTop" type="StaticBody2D" parent="."]
+position = Vector2(400, 0)
+rotation = 3.14159
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BoundaryTop"]
+shape = SubResource("WorldBoundaryShape2D_pxi20")
