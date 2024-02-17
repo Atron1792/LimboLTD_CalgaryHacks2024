@@ -2,40 +2,14 @@
 
 [ext_resource type="PackedScene" uid="uid://c28lm2n7tcd4m" path="res://scenes/player.tscn" id="1_juyfk"]
 [ext_resource type="PackedScene" uid="uid://cfls6gutsdhi0" path="res://scenes/mob.tscn" id="2_7mkrh"]
-
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_xsbwm"]
+[ext_resource type="PackedScene" uid="uid://cs5oe4dx2kfk6" path="res://scenes/walls.tscn" id="3_lbors"]
 
 [node name="MainScene" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_juyfk")]
 
-[node name="BoundaryBottom" type="StaticBody2D" parent="."]
-position = Vector2(400, 600)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BoundaryBottom"]
-shape = SubResource("WorldBoundaryShape2D_xsbwm")
-
-[node name="BoundaryBottom2" type="StaticBody2D" parent="."]
-position = Vector2(800, 300)
-rotation = -1.5708
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BoundaryBottom2"]
-shape = SubResource("WorldBoundaryShape2D_xsbwm")
-
-[node name="BoundaryRight" type="StaticBody2D" parent="."]
-position = Vector2(0, 300)
-rotation = 1.5708
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BoundaryRight"]
-shape = SubResource("WorldBoundaryShape2D_xsbwm")
-
-[node name="BoundaryTop" type="StaticBody2D" parent="."]
-position = Vector2(400, 0)
-rotation = 3.14159
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BoundaryTop"]
-shape = SubResource("WorldBoundaryShape2D_xsbwm")
-
 [node name="Mob" parent="." instance=ExtResource("2_7mkrh")]
+
+[node name="Walls" parent="." instance=ExtResource("3_lbors")]
 
 [node name="MobTimer" type="Timer" parent="."]
