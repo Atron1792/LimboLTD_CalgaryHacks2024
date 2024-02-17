@@ -1,6 +1,18 @@
-[gd_scene load_steps=2 format=3 uid="uid://cs5oe4dx2kfk6"]
+[gd_scene load_steps=5 format=3 uid="uid://cs5oe4dx2kfk6"]
+
+[ext_resource type="Texture2D" uid="uid://fxrv8ltdtoml" path="res://sprites/bricks wall.png" id="1_a3665"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_pxi20"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5jyj1"]
+texture = ExtResource("1_a3665")
+0:0/0 = 0
+1:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_lrtt2"]
+sources/0 = SubResource("TileSetAtlasSource_5jyj1")
 
 [node name="Walls" type="Node2D"]
 
@@ -10,6 +22,11 @@ position = Vector2(400, 600)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BoundaryBottom"]
 shape = SubResource("WorldBoundaryShape2D_pxi20")
 
+[node name="TileMap" type="TileMap" parent="BoundaryBottom/CollisionShape2D"]
+tile_set = SubResource("TileSet_lrtt2")
+format = 2
+layer_0/tile_data = PackedInt32Array(-8, 65536, 0, -7, 65536, 1, -6, 65536, 1, -5, 65536, 0, -4, 0, 0, -3, 65536, 1, -2, 65536, 1, -1, 65536, 0, -65536, 0, 0, -65535, 65536, 1, -65534, 0, 0, -65533, 65536, 1, -65532, 65536, 1, -65531, 0, 1, -65530, 0, 0, -65529, 65536, 0, -65528, 65536, 0, -65527, 0, 1, -65526, 65536, 0, -65525, 65536, 0, -65524, 0, 0, -65523, 0, 1, -65522, 65536, 1, -65521, 65536, 1, -65520, 0, 1, -65519, 0, 0, -65518, 65536, 0, -65517, 65536, 1, -65516, 0, 0, -65515, 0, 1, -65514, 0, 1, -65513, 0, 1, -65512, 0, 0, -9, 65536, 0, -10, 65536, 0, -11, 65536, 0, -12, 65536, 1, -13, 0, 0, -14, 0, 1, -15, 65536, 0, -16, 0, 0, -17, 0, 0, -18, 65536, 0, -19, 65536, 0, -20, 65536, 1, -21, 65536, 1, -22, 0, 1, -23, 0, 1, -24, 0, 0, -25, 65536, 0)
+
 [node name="BoundaryBottom2" type="StaticBody2D" parent="."]
 position = Vector2(800, 300)
 rotation = -1.5708
@@ -17,9 +34,19 @@ rotation = -1.5708
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BoundaryBottom2"]
 shape = SubResource("WorldBoundaryShape2D_pxi20")
 
+[node name="TileMap" type="TileMap" parent="BoundaryBottom2/CollisionShape2D"]
+tile_set = SubResource("TileSet_lrtt2")
+format = 2
+layer_0/tile_data = PackedInt32Array(-8, 65536, 0, -7, 65536, 1, -6, 65536, 1, -5, 65536, 0, -4, 0, 0, -3, 65536, 1, -2, 65536, 1, -1, 65536, 0, -65536, 0, 0, -65535, 65536, 1, -65534, 0, 0, -65533, 65536, 1, -65532, 65536, 1, -65531, 0, 1, -65530, 0, 0, -65529, 65536, 0, -65528, 65536, 0, -65527, 0, 1, -65526, 65536, 0, -65525, 65536, 0, -65524, 0, 0, -65523, 0, 1, -65522, 65536, 1, -65521, 65536, 1, -65520, 0, 1, -65519, 0, 0, -9, 65536, 0, -10, 65536, 0, -11, 65536, 0, -12, 65536, 1, -13, 0, 0, -14, 0, 1, -15, 65536, 0, -16, 0, 0, -17, 0, 0, -18, 65536, 0)
+
 [node name="BoundaryRight" type="StaticBody2D" parent="."]
 position = Vector2(0, 300)
 rotation = 1.5708
+
+[node name="TileMap" type="TileMap" parent="BoundaryRight"]
+tile_set = SubResource("TileSet_lrtt2")
+format = 2
+layer_0/tile_data = PackedInt32Array(-8, 65536, 0, -7, 65536, 1, -6, 65536, 1, -5, 65536, 0, -4, 0, 0, -3, 65536, 1, -2, 65536, 1, -1, 65536, 0, -65536, 0, 0, -65535, 65536, 1, -65534, 0, 0, -65533, 65536, 1, -65532, 65536, 1, -65531, 0, 1, -65530, 0, 0, -65529, 65536, 0, -65528, 65536, 0, -65527, 0, 1, -65526, 65536, 0, -65525, 65536, 0, -65524, 0, 0, -65523, 0, 1, -65522, 65536, 1, -65521, 65536, 1, -65520, 0, 1, -65519, 0, 0, -9, 65536, 0, -10, 65536, 0, -11, 65536, 0, -12, 65536, 1, -13, 0, 0, -14, 0, 1, -15, 65536, 0, -16, 0, 0, -17, 0, 0, -18, 65536, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BoundaryRight"]
 shape = SubResource("WorldBoundaryShape2D_pxi20")
@@ -30,3 +57,8 @@ rotation = 3.14159
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BoundaryTop"]
 shape = SubResource("WorldBoundaryShape2D_pxi20")
+
+[node name="TileMap" type="TileMap" parent="BoundaryTop/CollisionShape2D"]
+tile_set = SubResource("TileSet_lrtt2")
+format = 2
+layer_0/tile_data = PackedInt32Array(-8, 65536, 0, -7, 65536, 1, -6, 65536, 1, -5, 65536, 0, -4, 0, 0, -3, 65536, 1, -2, 65536, 1, -1, 65536, 0, -65536, 0, 0, -65535, 65536, 1, -65534, 0, 0, -65533, 65536, 1, -65532, 65536, 1, -65531, 0, 1, -65530, 0, 0, -65529, 65536, 0, -65528, 65536, 0, -65527, 0, 1, -65526, 65536, 0, -65525, 65536, 0, -65524, 0, 0, -65523, 0, 1, -65522, 65536, 1, -65521, 65536, 1, -65520, 0, 1, -65519, 0, 0, -65518, 65536, 0, -65517, 65536, 1, -65516, 0, 0, -65515, 0, 1, -65514, 0, 1, -65513, 0, 1, -65512, 0, 0, -9, 65536, 0, -10, 65536, 0, -11, 65536, 0, -12, 65536, 1, -13, 0, 0, -14, 0, 1, -15, 65536, 0, -16, 0, 0, -17, 0, 0, -18, 65536, 0, -19, 65536, 0, -20, 65536, 1, -21, 65536, 1, -22, 0, 1, -23, 0, 1, -24, 0, 0, -25, 65536, 0)
