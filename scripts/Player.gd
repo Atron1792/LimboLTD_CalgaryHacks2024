@@ -138,9 +138,14 @@ func shoot_bullet():
 func _on_hurtbox_area_entered(_area):
 	#TODO let area know they hit the player
 	#area.get_parent
-	print("hit")
-	if invincibility_timer < 0:
-		print("damage")
-		health_system.health -= 1
-		invincibility_timer = 1
+	#could prob do this through layers and masks
+	if(_area.name == "scream_area"):
+		print("was screamed at")
+		pass
+	else:
+		print("hit")
+		if invincibility_timer < 0:
+			print("damage")
+			health_system.health -= 1
+			invincibility_timer = 1
 	pass # Replace with function body.

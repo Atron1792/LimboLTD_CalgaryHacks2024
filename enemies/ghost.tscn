@@ -1,8 +1,9 @@
-[gd_scene load_steps=18 format=3 uid="uid://c0y3dn6l7l0h7"]
+[gd_scene load_steps=19 format=3 uid="uid://c0y3dn6l7l0h7"]
 
 [ext_resource type="Texture2D" uid="uid://da08sqdaprtpl" path="res://sprites/enemy_ghost.png" id="1_0t2hc"]
 [ext_resource type="Script" path="res://enemies/ghost.gd" id="1_6u2vs"]
 [ext_resource type="Texture2D" uid="uid://bemss4pj15u84" path="res://sprites/ghost_scream.png" id="3_d541j"]
+[ext_resource type="Script" path="res://enemies/scream_area.gd" id="4_0hm1r"]
 [ext_resource type="Script" path="res://enemies/ScreamCollision.gd" id="4_tt3hs"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_81muv"]
@@ -93,7 +94,7 @@ radius = 48.0
 [node name="Ghost" type="CharacterBody2D"]
 scale = Vector2(2, 2)
 collision_layer = 2
-collision_mask = 11
+collision_mask = 3
 script = ExtResource("1_6u2vs")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -104,8 +105,7 @@ shape = SubResource("RectangleShape2D_81muv")
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_gvu10")
 animation = &"screaming"
-frame = 5
-frame_progress = 0.302894
+autoplay = "default"
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 
@@ -119,7 +119,12 @@ shape = SubResource("RectangleShape2D_0k204")
 
 [node name="TimeBetweenScreams" type="Timer" parent="."]
 
-[node name="ScreamCollision" type="CollisionShape2D" parent="."]
+[node name="scream_area" type="Area2D" parent="."]
+collision_layer = 256
+collision_mask = 0
+script = ExtResource("4_0hm1r")
+
+[node name="ScreamCollision" type="CollisionShape2D" parent="scream_area"]
 shape = SubResource("CircleShape2D_vac0t")
 script = ExtResource("4_tt3hs")
 
