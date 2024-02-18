@@ -57,9 +57,6 @@ func move_action(delta):
 	move_and_slide()
 
 func die_action(delta):
-	var die_sound = $AudioStreamPlayer
-	die_sound.play()
-	
 	sprite.animation = "die"
 	if(death_timer < 0):
 		queue_free()
