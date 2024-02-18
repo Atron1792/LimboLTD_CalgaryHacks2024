@@ -59,6 +59,7 @@ func die_action(delta):
 		pass
 	sprite.animation = "die"
 	death_timer -= delta
+	
 
 func get_player():
 	player = get_parent().player
@@ -69,3 +70,9 @@ func _on_enemy_hurtbox_area_entered(area):
 	print("collision")
 	state = DIE
 
+
+
+func _on_animated_sprite_2d_animation_finished():
+	if sprite.animation = "die":
+		sprite.animation = "dead"
+	pass # Replace with function body.
