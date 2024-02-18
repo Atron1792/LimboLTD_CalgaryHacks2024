@@ -57,7 +57,3 @@ position = Vector2(0, 8)
 
 [node name="HealthSystem" parent="." instance=ExtResource("5_cv7k0")]
 position = Vector2(72, 72)
-
-[node name="Timer" type="Timer" parent="."]
-wait_time = 0.1
-autostart = true
