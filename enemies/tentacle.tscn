@@ -74,20 +74,17 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_68rjh"]
-size = Vector2(30, 130)
+size = Vector2(32, 130)
 
 [node name="tentacle" type="RigidBody2D"]
-collision_layer = 2
-collision_mask = 9
-gravity_scale = 0.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -64)
 sprite_frames = SubResource("SpriteFrames_bsojr")
 animation = &"Default"
+autoplay = "Default"
 frame_progress = 0.155017
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -63)
 shape = SubResource("RectangleShape2D_68rjh")
-disabled = true
