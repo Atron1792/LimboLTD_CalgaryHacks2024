@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://byjoecq7frp25"]
+[gd_scene load_steps=10 format=3 uid="uid://byjoecq7frp25"]
 
 [ext_resource type="Texture2D" uid="uid://fxrv8ltdtoml" path="res://sprites/bricks wall.png" id="1_fk8fh"]
 [ext_resource type="PackedScene" uid="uid://dlp8omsjwlkrb" path="res://scenes/game_over.tscn" id="1_ldl5a"]
@@ -56,11 +56,9 @@ scale = Vector2(1, 1)
 [node name="EvilWall" parent="." instance=ExtResource("4_4e2na")]
 position = Vector2(0, 8)
 
-
 [node name="Game_over" parent="." instance=ExtResource("1_ldl5a")]
 visible = false
 top_level = true
 
 [node name="HealthSystem" parent="." instance=ExtResource("5_cv7k0")]
 position = Vector2(72, 72)
-

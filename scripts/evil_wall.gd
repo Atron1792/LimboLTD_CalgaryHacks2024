@@ -1,5 +1,7 @@
 extends Node2D
 
+var player
+
 @onready var left = $left
 @onready var right = $right
 @onready var up = $up
@@ -15,33 +17,81 @@ var right_speed = 0
 var up_speed = 0
 var down_speed = 0
 
+
+var left_tentacles
+var right_tentacles
+var down_tentacles
+var up_tentacles
+
+var time_total = 0
+var room_anger = 0
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	var index = 0
+	#for tentacle in left.get_children():
+	#	left_tentacles[index][0] = tentacle
+	#	index += 1
+	#index = 0
+	#var left_tentacles = left.get_children()
+	#var right_tentacles = right.get_children()
+	#var down_tentacles = down.get_children()
+	#var up_tentacles = up.get_children()
 	pass # Replace with function body.
-
+	call_deferred("get_player")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	var x = func move_tentacle(tentacle:Node2D, target: float, speed: float):
-		if((tentacle.parent.name == "left" or tentacle.parent.name == "right")):
-			if(tentacle.position.x < target):
-				tentacle.position.x += speed * delta
-			else:
-				pass
-		if((tentacle.parent.name == "down" or tentacle.parent.name == "top")):
-			if(tentacle.position.y < target):
-				tentacle.position.y += speed * delta
-			else:
-				pass
+	time_total += delta
+	room_anger = time_total #- score
+	
+	pass
+	
+func move_tentacle(tentacle:Node2D, target: float, speed: float):
+	if((tentacle.parent.name == "left" or tentacle.parent.name == "right")):
+		if(tentacle.position.x < target):
+			pass
+			#tentacle.position.x += speed * delta
 		else:
-			pass 
+			pass
+	if((tentacle.parent.name == "down" or tentacle.parent.name == "top")):
+		if(tentacle.position.y < target):
+			pass
+			#tentacle.position.y += speed * delta
+		else:
+			pass
+	else:
+		pass 
 
 #func move_wall(wall:Node2D, distance: float, speed: float):
 	#moves the whole wall forward by distance at speed
 	#if position < distance:
 	#	position += speed * delta
 	#wall.position += Vector2(distancex, distancey)
-	
-func move_tentacles(wall:Node2D, distance: float, speed: float, range_start: int, range_end:int):
+
+
+func get_player():
+	player = get_parent().find_child("Player")
+
+func move_tentacles_bad(wall:Node2D, distance: float, speed: float, range_start: int, range_end:int):
 	#moves tentacles range_start to range_end by distance at speed
 	pass
+
+func set_target_all_walls(target: float):
+	left_target = target
+	#right_target = 			
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+

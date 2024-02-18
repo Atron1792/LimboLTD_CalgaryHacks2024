@@ -1,0 +1,413 @@
+[gd_scene load_steps=6 format=3 uid="uid://ci8pq0lwjmjfs"]
+
+[ext_resource type="Texture2D" uid="uid://bxj3yfun1nla7" path="res://sprites/evilwall.png" id="1_2haxa"]
+[ext_resource type="Script" path="res://scripts/evil_wall.gd" id="1_at5th"]
+[ext_resource type="PackedScene" uid="uid://b6e13k5y4cswk" path="res://enemies/tentacle.tscn" id="2_br8ii"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_blw67"]
+texture = ExtResource("1_2haxa")
+16:0/size_in_atlas = Vector2i(2, 8)
+16:0/0 = 0
+16:0/0/y_sort_origin = -50
+14:0/size_in_atlas = Vector2i(2, 8)
+14:0/0 = 0
+14:0/0/y_sort_origin = -50
+12:0/size_in_atlas = Vector2i(2, 8)
+12:0/0 = 0
+12:0/0/y_sort_origin = -50
+10:0/size_in_atlas = Vector2i(2, 8)
+10:0/0 = 0
+10:0/0/y_sort_origin = -50
+8:0/size_in_atlas = Vector2i(2, 8)
+8:0/0 = 0
+8:0/0/y_sort_origin = -50
+6:0/size_in_atlas = Vector2i(2, 8)
+6:0/0 = 0
+6:0/0/y_sort_origin = -50
+4:0/size_in_atlas = Vector2i(2, 8)
+4:0/0 = 0
+4:0/0/y_sort_origin = -50
+2:0/size_in_atlas = Vector2i(2, 8)
+2:0/0 = 0
+2:0/0/y_sort_origin = -50
+0:0/size_in_atlas = Vector2i(2, 8)
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(1, 0)
+0:0/0/y_sort_origin = -50
+
+[sub_resource type="TileSet" id="TileSet_3vgot"]
+sources/0 = SubResource("TileSetAtlasSource_blw67")
+
+[node name="EvilWall" type="Node2D"]
+script = ExtResource("1_at5th")
+
+[node name="TileMap" type="TileMap" parent="."]
+visible = false
+tile_set = SubResource("TileSet_3vgot")
+format = 2
+
+[node name="left" type="Node2D" parent="."]
+
+[node name="tentacle" parent="left" instance=ExtResource("2_br8ii")]
+position = Vector2(-128, 16)
+rotation = 1.5708
+
+[node name="tentacle2" parent="left" instance=ExtResource("2_br8ii")]
+position = Vector2(-128, 48)
+rotation = 1.5708
+
+[node name="tentacle3" parent="left" instance=ExtResource("2_br8ii")]
+position = Vector2(-128, 80)
+rotation = 1.5708
+
+[node name="tentacle4" parent="left" instance=ExtResource("2_br8ii")]
+position = Vector2(-128, 112)
+rotation = 1.5708
+
+[node name="tentacle5" parent="left" instance=ExtResource("2_br8ii")]
+position = Vector2(-128, 144)
+rotation = 1.5708
+
+[node name="tentacle6" parent="left" instance=ExtResource("2_br8ii")]
+position = Vector2(-128, 176)
+rotation = 1.5708
+
+[node name="tentacle7" parent="left" instance=ExtResource("2_br8ii")]
+position = Vector2(-128, 209)
+rotation = 1.5708
+
+[node name="tentacle8" parent="left" instance=ExtResource("2_br8ii")]
+position = Vector2(-128, 241)
+rotation = 1.5708
+
+[node name="tentacle9" parent="left" instance=ExtResource("2_br8ii")]
+position = Vector2(-128, 273)
+rotation = 1.5708
+
+[node name="tentacle10" parent="left" instance=ExtResource("2_br8ii")]
+position = Vector2(-128, 305)
+rotation = 1.5708
+
+[node name="tentacle11" parent="left" instance=ExtResource("2_br8ii")]
+position = Vector2(-128, 337)
+rotation = 1.5708
+
+[node name="tentacle12" parent="left" instance=ExtResource("2_br8ii")]
+position = Vector2(-128, 369)
+rotation = 1.5708
+
+[node name="tentacle13" parent="left" instance=ExtResource("2_br8ii")]
+position = Vector2(-128, 401)
+rotation = 1.5708
+
+[node name="tentacle14" parent="left" instance=ExtResource("2_br8ii")]
+position = Vector2(-128, 433)
+rotation = 1.5708
+
+[node name="tentacle15" parent="left" instance=ExtResource("2_br8ii")]
+position = Vector2(-128, 465)
+rotation = 1.5708
+
+[node name="tentacle16" parent="left" instance=ExtResource("2_br8ii")]
+position = Vector2(-128, 497)
+rotation = 1.5708
+
+[node name="tentacle17" parent="left" instance=ExtResource("2_br8ii")]
+position = Vector2(-128, 529)
+rotation = 1.5708
+
+[node name="tentacle18" parent="left" instance=ExtResource("2_br8ii")]
+position = Vector2(-128, 561)
+rotation = 1.5708
+
+[node name="tentacle19" parent="left" instance=ExtResource("2_br8ii")]
+position = Vector2(-128, 593)
+rotation = 1.5708
+
+[node name="right" type="Node2D" parent="."]
+position = Vector2(800, 608)
+rotation = 3.14159
+
+[node name="tentacle" parent="right" instance=ExtResource("2_br8ii")]
+position = Vector2(-128, 16)
+rotation = 1.5708
+
+[node name="tentacle2" parent="right" instance=ExtResource("2_br8ii")]
+position = Vector2(-128, 48)
+rotation = 1.5708
+
+[node name="tentacle3" parent="right" instance=ExtResource("2_br8ii")]
+position = Vector2(-128, 80)
+rotation = 1.5708
+
+[node name="tentacle4" parent="right" instance=ExtResource("2_br8ii")]
+position = Vector2(-128, 112)
+rotation = 1.5708
+
+[node name="tentacle5" parent="right" instance=ExtResource("2_br8ii")]
+position = Vector2(-128, 144)
+rotation = 1.5708
+
+[node name="tentacle6" parent="right" instance=ExtResource("2_br8ii")]
+position = Vector2(-128, 176)
+rotation = 1.5708
+
+[node name="tentacle7" parent="right" instance=ExtResource("2_br8ii")]
+position = Vector2(-128, 209)
+rotation = 1.5708
+
+[node name="tentacle8" parent="right" instance=ExtResource("2_br8ii")]
+position = Vector2(-128, 241)
+rotation = 1.5708
+
+[node name="tentacle9" parent="right" instance=ExtResource("2_br8ii")]
+position = Vector2(-128, 273)
+rotation = 1.5708
+
+[node name="tentacle10" parent="right" instance=ExtResource("2_br8ii")]
+position = Vector2(-128, 305)
+rotation = 1.5708
+
+[node name="tentacle11" parent="right" instance=ExtResource("2_br8ii")]
+position = Vector2(-128, 337)
+rotation = 1.5708
+
+[node name="tentacle12" parent="right" instance=ExtResource("2_br8ii")]
+position = Vector2(-128, 369)
+rotation = 1.5708
+
+[node name="tentacle13" parent="right" instance=ExtResource("2_br8ii")]
+position = Vector2(-128, 401)
+rotation = 1.5708
+
+[node name="tentacle14" parent="right" instance=ExtResource("2_br8ii")]
+position = Vector2(-128, 433)
+rotation = 1.5708
+
+[node name="tentacle15" parent="right" instance=ExtResource("2_br8ii")]
+position = Vector2(-128, 465)
+rotation = 1.5708
+
+[node name="tentacle16" parent="right" instance=ExtResource("2_br8ii")]
+position = Vector2(-128, 497)
+rotation = 1.5708
+
+[node name="tentacle17" parent="right" instance=ExtResource("2_br8ii")]
+position = Vector2(-128, 529)
+rotation = 1.5708
+
+[node name="tentacle18" parent="right" instance=ExtResource("2_br8ii")]
+position = Vector2(-128, 561)
+rotation = 1.5708
+
+[node name="tentacle19" parent="right" instance=ExtResource("2_br8ii")]
+position = Vector2(-128, 593)
+rotation = 1.5708
+
+[node name="bottom" type="Node2D" parent="."]
+position = Vector2(0, 600)
+rotation = -1.5708
+
+[node name="tentacle" parent="bottom" instance=ExtResource("2_br8ii")]
+position = Vector2(-128, 16)
+rotation = 1.5708
+
+[node name="tentacle2" parent="bottom" instance=ExtResource("2_br8ii")]
+position = Vector2(-128, 48)
+rotation = 1.5708
+
+[node name="tentacle3" parent="bottom" instance=ExtResource("2_br8ii")]
+position = Vector2(-128, 80)
+rotation = 1.5708
+
+[node name="tentacle4" parent="bottom" instance=ExtResource("2_br8ii")]
+position = Vector2(-128, 112)
+rotation = 1.5708
+
+[node name="tentacle5" parent="bottom" instance=ExtResource("2_br8ii")]
+position = Vector2(-128, 144)
+rotation = 1.5708
+
+[node name="tentacle6" parent="bottom" instance=ExtResource("2_br8ii")]
+position = Vector2(-128, 176)
+rotation = 1.5708
+
+[node name="tentacle7" parent="bottom" instance=ExtResource("2_br8ii")]
+position = Vector2(-128, 209)
+rotation = 1.5708
+
+[node name="tentacle8" parent="bottom" instance=ExtResource("2_br8ii")]
+position = Vector2(-128, 241)
+rotation = 1.5708
+
+[node name="tentacle9" parent="bottom" instance=ExtResource("2_br8ii")]
+position = Vector2(-128, 273)
+rotation = 1.5708
+
+[node name="tentacle10" parent="bottom" instance=ExtResource("2_br8ii")]
+position = Vector2(-128, 305)
+rotation = 1.5708
+
+[node name="tentacle11" parent="bottom" instance=ExtResource("2_br8ii")]
+position = Vector2(-128, 337)
+rotation = 1.5708
+
+[node name="tentacle12" parent="bottom" instance=ExtResource("2_br8ii")]
+position = Vector2(-128, 369)
+rotation = 1.5708
+
+[node name="tentacle13" parent="bottom" instance=ExtResource("2_br8ii")]
+position = Vector2(-128, 401)
+rotation = 1.5708
+
+[node name="tentacle14" parent="bottom" instance=ExtResource("2_br8ii")]
+position = Vector2(-128, 433)
+rotation = 1.5708
+
+[node name="tentacle15" parent="bottom" instance=ExtResource("2_br8ii")]
+position = Vector2(-128, 465)
+rotation = 1.5708
+
+[node name="tentacle16" parent="bottom" instance=ExtResource("2_br8ii")]
+position = Vector2(-128, 497)
+rotation = 1.5708
+
+[node name="tentacle17" parent="bottom" instance=ExtResource("2_br8ii")]
+position = Vector2(-128, 529)
+rotation = 1.5708
+
+[node name="tentacle18" parent="bottom" instance=ExtResource("2_br8ii")]
+position = Vector2(-128, 561)
+rotation = 1.5708
+
+[node name="tentacle19" parent="bottom" instance=ExtResource("2_br8ii")]
+position = Vector2(-128, 593)
+rotation = 1.5708
+
+[node name="tentacle20" parent="bottom" instance=ExtResource("2_br8ii")]
+position = Vector2(-128, 624)
+rotation = 1.5708
+
+[node name="tentacle21" parent="bottom" instance=ExtResource("2_br8ii")]
+position = Vector2(-128, 656)
+rotation = 1.5708
+
+[node name="tentacle22" parent="bottom" instance=ExtResource("2_br8ii")]
+position = Vector2(-128, 688)
+rotation = 1.5708
+
+[node name="tentacle23" parent="bottom" instance=ExtResource("2_br8ii")]
+position = Vector2(-128, 720)
+rotation = 1.5708
+
+[node name="tentacle24" parent="bottom" instance=ExtResource("2_br8ii")]
+position = Vector2(-128, 752)
+rotation = 1.5708
+
+[node name="tentacle25" parent="bottom" instance=ExtResource("2_br8ii")]
+position = Vector2(-128, 784)
+rotation = 1.5708
+
+[node name="top" type="Node2D" parent="."]
+position = Vector2(800, -6.10352e-05)
+rotation = 1.5708
+
+[node name="tentacle" parent="top" instance=ExtResource("2_br8ii")]
+position = Vector2(-128, 16)
+rotation = 1.5708
+
+[node name="tentacle2" parent="top" instance=ExtResource("2_br8ii")]
+position = Vector2(-128, 48)
+rotation = 1.5708
+
+[node name="tentacle3" parent="top" instance=ExtResource("2_br8ii")]
+position = Vector2(-128, 80)
+rotation = 1.5708
+
+[node name="tentacle4" parent="top" instance=ExtResource("2_br8ii")]
+position = Vector2(-128, 112)
+rotation = 1.5708
+
+[node name="tentacle5" parent="top" instance=ExtResource("2_br8ii")]
+position = Vector2(-128, 144)
+rotation = 1.5708
+
+[node name="tentacle6" parent="top" instance=ExtResource("2_br8ii")]
+position = Vector2(-128, 176)
+rotation = 1.5708
+
+[node name="tentacle7" parent="top" instance=ExtResource("2_br8ii")]
+position = Vector2(-128, 209)
+rotation = 1.5708
+
+[node name="tentacle8" parent="top" instance=ExtResource("2_br8ii")]
+position = Vector2(-128, 241)
+rotation = 1.5708
+
+[node name="tentacle9" parent="top" instance=ExtResource("2_br8ii")]
+position = Vector2(-128, 273)
+rotation = 1.5708
+
+[node name="tentacle10" parent="top" instance=ExtResource("2_br8ii")]
+position = Vector2(-128, 305)
+rotation = 1.5708
+
+[node name="tentacle11" parent="top" instance=ExtResource("2_br8ii")]
+position = Vector2(-128, 337)
+rotation = 1.5708
+
+[node name="tentacle12" parent="top" instance=ExtResource("2_br8ii")]
+position = Vector2(-128, 369)
+rotation = 1.5708
+
+[node name="tentacle13" parent="top" instance=ExtResource("2_br8ii")]
+position = Vector2(-128, 401)
+rotation = 1.5708
+
+[node name="tentacle14" parent="top" instance=ExtResource("2_br8ii")]
+position = Vector2(-128, 433)
+rotation = 1.5708
+
+[node name="tentacle15" parent="top" instance=ExtResource("2_br8ii")]
+position = Vector2(-128, 465)
+rotation = 1.5708
+
+[node name="tentacle16" parent="top" instance=ExtResource("2_br8ii")]
+position = Vector2(-128, 497)
+rotation = 1.5708
+
+[node name="tentacle17" parent="top" instance=ExtResource("2_br8ii")]
+position = Vector2(-128, 529)
+rotation = 1.5708
+
+[node name="tentacle18" parent="top" instance=ExtResource("2_br8ii")]
+position = Vector2(-128, 561)
+rotation = 1.5708
+
+[node name="tentacle19" parent="top" instance=ExtResource("2_br8ii")]
+position = Vector2(-128, 593)
+rotation = 1.5708
+
+[node name="tentacle20" parent="top" instance=ExtResource("2_br8ii")]
+position = Vector2(-128, 624)
+rotation = 1.5708
+
+[node name="tentacle21" parent="top" instance=ExtResource("2_br8ii")]
+position = Vector2(-128, 656)
+rotation = 1.5708
+
+[node name="tentacle22" parent="top" instance=ExtResource("2_br8ii")]
+position = Vector2(-128, 688)
+rotation = 1.5708
+
+[node name="tentacle23" parent="top" instance=ExtResource("2_br8ii")]
+position = Vector2(-128, 720)
+rotation = 1.5708
+
+[node name="tentacle24" parent="top" instance=ExtResource("2_br8ii")]
+position = Vector2(-128, 752)
+rotation = 1.5708
+
+[node name="tentacle25" parent="top" instance=ExtResource("2_br8ii")]
+position = Vector2(-128, 784)
+rotation = 1.5708
