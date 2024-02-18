@@ -8,15 +8,15 @@ script = ExtResource("1_6qwsh")
 [node name="placeholder_spawn" type="Timer" parent="."]
 
 [node name="eye_spawner" type="Timer" parent="."]
-one_shot = true
 autostart = true
 
-[node name="Timer2" type="Timer" parent="."]
+[node name="ghost_spawner" type="Timer" parent="."]
 autostart = true
 
 [node name="Timer3" type="Timer" parent="."]
 autostart = true
 
-[connection signal="timeout" from="placeholder_spawn" to="." method="_on_placeholder_spawn_timeout"]
 [connection signal="timeout" from="placeholder_spawn" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="placeholder_spawn" to="." method="_on_placeholder_spawn_timeout"]
 [connection signal="timeout" from="eye_spawner" to="." method="_on_eye_spawner_timeout"]
+[connection signal="timeout" from="ghost_spawner" to="." method="_on_ghost_spawner_timeout"]
