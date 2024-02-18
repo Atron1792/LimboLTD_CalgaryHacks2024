@@ -99,6 +99,6 @@ func shoot_bullet():
 	get_parent().add_child(bullet)
 	
 	
-	
-	
-	
+
+func _on_hurtbox_area_entered(area):
+	pass # Replace with function body.

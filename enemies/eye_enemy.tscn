@@ -3,11 +3,11 @@
 [ext_resource type="Texture2D" uid="uid://dworc1vtcgu07" path="res://sprites/enemy_eye.png" id="1_6xb83"]
 [ext_resource type="Script" path="res://enemies/eye_enemy.gd" id="1_udeiv"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_07p2j"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_pf78g"]
 atlas = ExtResource("1_6xb83")
 region = Rect2(0, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_je44y"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_htpbd"]
 atlas = ExtResource("1_6xb83")
 region = Rect2(64, 0, 64, 64)
 
@@ -15,10 +15,10 @@ region = Rect2(64, 0, 64, 64)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_07p2j")
+"texture": SubResource("AtlasTexture_pf78g")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_je44y")
+"texture": SubResource("AtlasTexture_htpbd")
 }],
 "loop": true,
 "name": &"default",
@@ -36,7 +36,8 @@ script = ExtResource("1_udeiv")
 texture_filter = 1
 position = Vector2(0, -32)
 sprite_frames = SubResource("SpriteFrames_cxdv8")
-frame_progress = 0.72637
+autoplay = "default"
+frame_progress = 0.0421038
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1, -28)
