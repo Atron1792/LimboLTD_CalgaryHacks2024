@@ -47,7 +47,6 @@ tile_set = SubResource("TileSet_3vgot")
 format = 2
 
 [node name="left" type="Node2D" parent="."]
-scale = Vector2(0.99577, 1)
 
 [node name="tentacle" parent="left" instance=ExtResource("2_br8ii")]
 position = Vector2(-128, 16)
