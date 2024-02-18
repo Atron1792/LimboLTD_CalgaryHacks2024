@@ -21,6 +21,7 @@ position = Vector2(400, 600)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BoundaryBottom"]
 shape = SubResource("WorldBoundaryShape2D_pxi20")
+one_way_collision = true
 
 [node name="TileMap" type="TileMap" parent="BoundaryBottom/CollisionShape2D"]
 tile_set = SubResource("TileSet_lrtt2")
@@ -33,6 +34,7 @@ rotation = -1.5708
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BoundaryBottom2"]
 shape = SubResource("WorldBoundaryShape2D_pxi20")
+one_way_collision = true
 
 [node name="TileMap" type="TileMap" parent="BoundaryBottom2/CollisionShape2D"]
 tile_set = SubResource("TileSet_lrtt2")
@@ -43,13 +45,14 @@ layer_0/tile_data = PackedInt32Array(-8, 65536, 0, -7, 65536, 1, -6, 65536, 1, -
 position = Vector2(0, 300)
 rotation = 1.5708
 
-[node name="TileMap" type="TileMap" parent="BoundaryRight"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BoundaryRight"]
+shape = SubResource("WorldBoundaryShape2D_pxi20")
+one_way_collision = true
+
+[node name="TileMap" type="TileMap" parent="BoundaryRight/CollisionShape2D"]
 tile_set = SubResource("TileSet_lrtt2")
 format = 2
 layer_0/tile_data = PackedInt32Array(-8, 65536, 0, -7, 65536, 1, -6, 65536, 1, -5, 65536, 0, -4, 0, 0, -3, 65536, 1, -2, 65536, 1, -1, 65536, 0, -65536, 0, 0, -65535, 65536, 1, -65534, 0, 0, -65533, 65536, 1, -65532, 65536, 1, -65531, 0, 1, -65530, 0, 0, -65529, 65536, 0, -65528, 65536, 0, -65527, 0, 1, -65526, 65536, 0, -65525, 65536, 0, -65524, 0, 0, -65523, 0, 1, -65522, 65536, 1, -65521, 65536, 1, -65520, 0, 1, -65519, 0, 0, -9, 65536, 0, -10, 65536, 0, -11, 65536, 0, -12, 65536, 1, -13, 0, 0, -14, 0, 1, -15, 65536, 0, -16, 0, 0, -17, 0, 0, -18, 65536, 0)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BoundaryRight"]
-shape = SubResource("WorldBoundaryShape2D_pxi20")
 
 [node name="BoundaryTop" type="StaticBody2D" parent="."]
 position = Vector2(400, 0)
@@ -57,6 +60,7 @@ rotation = 3.14159
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BoundaryTop"]
 shape = SubResource("WorldBoundaryShape2D_pxi20")
+one_way_collision = true
 
 [node name="TileMap" type="TileMap" parent="BoundaryTop/CollisionShape2D"]
 tile_set = SubResource("TileSet_lrtt2")
