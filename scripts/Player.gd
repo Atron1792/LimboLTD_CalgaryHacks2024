@@ -8,6 +8,7 @@ extends CharacterBody2D
 
 var bullet_scene = load("res://Player/bullet.tscn")
 
+var score = 0
 
 
 enum {

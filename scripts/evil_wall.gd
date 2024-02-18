@@ -44,10 +44,12 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	time_total += delta
-	room_anger = time_total #- score
+	room_anger = time_total - player.score
+	print("room anger = ", room_anger, "time = ", time_total, "score = ", player.score)
+	#TODO move walls individually
 	#TODO these numbers will all have to be refined
 	if(room_anger < 5):
-		move_walls(-1, 1/room_anger, delta)
+		move_walls(-1, 50, delta)
 	else:
 		move_walls(1, room_anger * 10, delta)
 	pass
