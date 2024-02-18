@@ -59,6 +59,7 @@ position = Vector2(0, -63.3333)
 texture = ExtResource("2_mkiro")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
 position = Vector2(0, -16.6667)
 sprite_frames = SubResource("SpriteFrames_j7o1f")
 animation = &"walk"

@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://csqsptxma7ocs"]
+
+[ext_resource type="Texture2D" uid="uid://bysa206qh7o0n" path="res://sprites/eye tears.png" id="1_ynk8a"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_81muv"]
+size = Vector2(14, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4xpka"]
+atlas = ExtResource("1_ynk8a")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_81a7y"]
+atlas = ExtResource("1_ynk8a")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ri2o7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4xpka")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_81a7y")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Tears" type="RigidBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 5)
+shape = SubResource("RectangleShape2D_81muv")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_ri2o7")
+autoplay = "default"
+frame_progress = 0.320425
