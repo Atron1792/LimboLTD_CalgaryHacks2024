@@ -129,6 +129,8 @@ func frozen_function(delta):
 
 func dead_function():
 	#Death animation
+	health_system.visible = false
+	health_system.top_level = false
 	get_parent().find_child("Game_over").visible = true
 	pass
 
