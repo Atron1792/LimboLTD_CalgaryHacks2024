@@ -2,14 +2,17 @@ extends CharacterBody2D
 
 var move_speed:float = 8000.0
 @onready var nav_agent = $"NavigationAgent2D"
+@onready var sprite = $AnimatedSprite2D
 var player
+var death_timer = 10
 
 enum {
-	MOVE = 0,
-	DIE = 1
+	MOVE,
+	DIE
 }
 
 var state = MOVE
+
 
 
 
@@ -36,7 +39,7 @@ func _process(delta):
 		MOVE:
 			move_action(delta)
 		DIE:
-			die_action()
+			die_action(delta)
 	pass
 
 func set_movement_target(target: Vector2):
@@ -48,9 +51,14 @@ func move_action(delta):
 	velocity = global_position.direction_to(nav_agent.get_next_path_position()) * move_speed * delta
 	move_and_slide()
 
-func die_action():
-	print("dead")
-	pass
+func die_action(delta):
+	if(death_timer < 0):
+		queue_free()
+	if death_timer < 3:
+		#TODO flash, then despawn
+		pass
+	sprite.animation = "die"
+	death_timer -= delta
 
 func get_player():
 	player = get_parent().player
@@ -58,4 +66,6 @@ func get_player():
 
 
 func _on_enemy_hurtbox_area_entered(area):
+	print("collision")
 	state = DIE
+
