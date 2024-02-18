@@ -2,7 +2,9 @@
 
 importer="wav"
 type="AudioStreamWAV"
-uid="uid://bhd4dw8xepmri"
+
+uid="uid://c4ju88bljkxwa"
+
 path="res://.godot/imported/shot.wav-43c60f105bbfb212572bd6b3ca55ba7d.sample"
 
 [deps]

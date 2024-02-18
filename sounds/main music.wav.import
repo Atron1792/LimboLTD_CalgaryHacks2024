@@ -2,7 +2,8 @@
 
 importer="wav"
 type="AudioStreamWAV"
-uid="uid://hef32lbrcps8"
+
+uid="uid://svn2c0kr4uss"
 path="res://.godot/imported/main music.wav-3896399c93d57493d349cf323999cf5a.sample"
 
 [deps]
