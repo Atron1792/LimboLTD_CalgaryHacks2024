@@ -73,6 +73,12 @@ func move_function(delta):
 	#print(input_vector)
 	#handle animations
 	animations_moving(input_vector)
+	invincibility_timer -= delta
+	
+	if invincibility_timer < 1:
+		#TODO anoone make the sprite red.
+		#sprite is a reference to the sprite.
+		pass
 	if(health_system.health == 0):
 		state = DIE
 
@@ -129,6 +135,9 @@ func shoot_bullet():
 func _on_hurtbox_area_entered(area):
 	#TODO let area know they hit the player
 	#area.get_parent
+	print("hit")
 	if invincibility_timer < 0:
+		print("damage")
 		health_system.health -= 1
+		invincibility_timer = 1
 	pass # Replace with function body.

@@ -69,6 +69,8 @@ func move_tentacle(tentacle:Node2D, target: float, speed: float):
 	#	position += speed * delta
 	#wall.position += Vector2(distancex, distancey)
 
+func move_walls(insoide:bool, spped:float, delta):
+	pass
 
 func get_player():
 	player = get_parent().find_child("Player")
