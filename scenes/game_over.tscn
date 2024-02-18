@@ -14,7 +14,7 @@ grow_vertical = 2
 layout_mode = 0
 offset_right = 800.0
 offset_bottom = 601.0
-color = Color(0.921569, 0.360784, 0.12549, 1)
+color = Color(0.984314, 0.4, 0.117647, 0.592157)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(400, 280)
