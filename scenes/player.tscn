@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://c28lm2n7tcd4m"]
+[gd_scene load_steps=6 format=3 uid="uid://c28lm2n7tcd4m"]
 
 [ext_resource type="Script" path="res://scripts/Player.gd" id="1_qtqud"]
 [ext_resource type="Texture2D" uid="uid://dfa4ekr4xekei" path="res://icon.svg" id="2_01wsj"]
+[ext_resource type="PackedScene" uid="uid://c8r056gap7nlk" path="res://scenes/health_system.tscn" id="3_12sdu"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4lov7"]
 
@@ -20,3 +21,5 @@ sprite_frames = SubResource("SpriteFrames_klr13")
 [node name="Icon" type="Sprite2D" parent="."]
 position = Vector2(0, -3.33337)
 texture = ExtResource("2_01wsj")
+
+[node name="HealthSystem" parent="." instance=ExtResource("3_12sdu")]

@@ -36,6 +36,7 @@ script = ExtResource("1_udeiv")
 texture_filter = 1
 position = Vector2(0, -32)
 sprite_frames = SubResource("SpriteFrames_cxdv8")
+frame_progress = 0.72637
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1, -28)
