@@ -17,7 +17,7 @@ enum {
 
 var state = MOVE
 var ghost_health = 2
-var death_timer = 2
+var death_timer = 1
 var scream_timer = 0
 
 # Called when the node enters the scene tree for the first time.
@@ -84,7 +84,6 @@ func _on_enemy_hurtbox_area_entered(area):
 		ghost_health = ghost_health - 1
 	if (ghost_health <= 0):
 		state = DIE
-	print("ghost collision")
 	#TODO color change for a bit
 
 func _on_timer_timeout():
