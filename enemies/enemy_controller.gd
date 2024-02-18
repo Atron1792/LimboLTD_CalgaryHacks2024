@@ -16,17 +16,14 @@ func _ready():
 	call_deferred("get_player")
 	pass # Replace with function body.
 
-
 func get_player():
-	player = get_parent().find_child("Player")
+	player = get_tree().root.find_child("Player", true)#get_parent().find_child("Player")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	difficulty += delta
-	
 	ghost_timer.wait_time = difficulty * 2
 	
-
 func spawn_placeholder(position_x, position_y):
 	var placeholder_enemy = placeholder_enemy_scene.instantiate()
 	placeholder_enemy.position = Vector2(position_x, position_y)

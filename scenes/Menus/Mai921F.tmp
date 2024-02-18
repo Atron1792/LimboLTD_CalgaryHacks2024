@@ -1,0 +1,73 @@
+[gd_scene load_steps=6 format=3 uid="uid://crap16bkiqjpi"]
+
+[ext_resource type="Script" path="res://scenes/Menus/start_button.gd" id="1_6v800"]
+[ext_resource type="Script" path="res://scenes/Menus/quit_button.gd" id="2_hktyo"]
+[ext_resource type="AudioStream" uid="uid://34878h88y8c2" path="res://sounds/main music.wav" id="3_v0p40"]
+[ext_resource type="Script" path="res://scenes/Menus/MainMenuMusic.gd" id="4_03a7w"]
+
+[sub_resource type="Theme" id="Theme_vsrjj"]
+
+[node name="MainMenu" type="Control"]
+top_level = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 797.0
+offset_bottom = 600.0
+color = Color(1, 0.443137, 0.0941176, 1)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -56.0
+offset_top = 125.0
+offset_right = 56.0
+offset_bottom = 148.0
+grow_horizontal = 2
+theme = SubResource("Theme_vsrjj")
+text = "<Game name>"
+horizontal_alignment = 1
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 40.0
+grow_horizontal = 2
+
+[node name="start_button" type="Button" parent="Control"]
+layout_mode = 0
+offset_top = 175.0
+offset_right = 46.0
+offset_bottom = 206.0
+text = "Start"
+script = ExtResource("1_6v800")
+
+[node name="quit_button" type="Button" parent="Control"]
+layout_mode = 0
+offset_top = 225.0
+offset_right = 46.0
+offset_bottom = 256.0
+text = "Quit"
+script = ExtResource("2_hktyo")
+
+[node name="MainMenuMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_v0p40")
+autoplay = true
+script = ExtResource("4_03a7w")
+
+[connection signal="pressed" from="Control/start_button" to="Control/start_button" method="_on_pressed"]
+[connection signal="pressed" from="Control/quit_button" to="Control/quit_button" method="_on_pressed"]

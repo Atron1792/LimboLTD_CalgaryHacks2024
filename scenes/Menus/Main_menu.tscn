@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://crap16bkiqjpi"]
+[gd_scene load_steps=6 format=3 uid="uid://crap16bkiqjpi"]
 
 [ext_resource type="Script" path="res://scenes/Menus/start_button.gd" id="1_6v800"]
 [ext_resource type="Script" path="res://scenes/Menus/quit_button.gd" id="2_hktyo"]
+[ext_resource type="AudioStream" uid="uid://bihfhryrt5cjl" path="res://sounds/main music.wav" id="3_v0p40"]
+[ext_resource type="Script" path="res://scenes/Menus/MainMenuMusic.gd" id="4_03a7w"]
 
 [sub_resource type="Theme" id="Theme_vsrjj"]
 
@@ -61,6 +63,11 @@ offset_right = 46.0
 offset_bottom = 256.0
 text = "Quit"
 script = ExtResource("2_hktyo")
+
+[node name="MainMenuMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_v0p40")
+autoplay = true
+script = ExtResource("4_03a7w")
 
 [connection signal="pressed" from="Control/start_button" to="Control/start_button" method="_on_pressed"]
 [connection signal="pressed" from="Control/quit_button" to="Control/quit_button" method="_on_pressed"]
