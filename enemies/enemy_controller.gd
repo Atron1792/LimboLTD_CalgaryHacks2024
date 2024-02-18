@@ -53,9 +53,8 @@ func spawn_enemy(enemy_scene, position_x, position_y):
 	add_child(instance)
 
 func _on_eye_spawner_timeout():
-	var block_eye_spawn
 	if not block_eye_spawn:
-		var eye = eye_scene.instantiate()
+		var _eye = eye_scene.instantiate()
 		#TODO replace with actual values 
 		spawn_enemy(eye_scene, 200, 200)
 
