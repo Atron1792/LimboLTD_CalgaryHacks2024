@@ -45,8 +45,7 @@ func _on_eye_spawner_timeout():
 func _on_placeholder_spawn_timeout():
 	spawn_placeholder(200,200)
 	pass # Replace with function body.
-
-
+	
 func _on_ghost_spawner_timeout():
 	var ghost = ghost_scene.instantiate()
 	spawn_enemy(ghost_scene, 300, 300)

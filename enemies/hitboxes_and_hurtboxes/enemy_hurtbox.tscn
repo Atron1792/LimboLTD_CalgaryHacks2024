@@ -1,7 +1,7 @@
 [gd_scene load_steps=2 format=3 uid="uid://b7op0y3af6fu4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0k204"]
-size = Vector2(18, 22)
+size = Vector2(17, 32)
 
 [node name="EnemyHurtbox" type="Area2D"]
 collision_layer = 2
