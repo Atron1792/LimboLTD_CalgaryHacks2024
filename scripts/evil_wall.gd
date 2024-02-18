@@ -45,6 +45,10 @@ func _ready():
 func _process(delta):
 	time_total += delta
 	room_anger = time_total - player.score
+	
+	#180?
+	if(time_total > 15):
+		game_won()
 	#print("room anger = ", room_anger, "time = ", time_total, "score = ", player.score)
 	#TODO move walls individually
 	#TODO these numbers will all have to be refined
@@ -54,6 +58,13 @@ func _process(delta):
 		move_walls(1, room_anger * 10, delta)
 	pass
 	
+func game_won():
+	print("won")
+	get_parent().find_child("Enemy_controller").game_won = true
+	
+	#TODO move walls back, then destroy
+	queue_free()
+
 func move_tentacle(tentacle:Node2D, target: float, _speed: float):
 	if((tentacle.parent.name == "left" or tentacle.parent.name == "right")):
 		if(tentacle.position.x < target):

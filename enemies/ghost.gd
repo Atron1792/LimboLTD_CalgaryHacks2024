@@ -9,8 +9,8 @@ var has_scored = false
 
 enum {
 	MOVE,
-	SCREAM,
-	DIE
+	DIE,
+	SCREAM
 }
 
 var state = MOVE

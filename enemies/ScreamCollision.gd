@@ -7,7 +7,7 @@ var set_collision_layer_value
 func _ready():
 	timer = Timer.new()
 	timer.set_wait_time(2)  # Duration of temporary collision disable (in seconds)
-	timer.connect("timeout", self, "_on_timeout")
+	#timer.connect("timeout", self, "_on_timeout")
 	add_child(timer)
 	timer.start()
 	
