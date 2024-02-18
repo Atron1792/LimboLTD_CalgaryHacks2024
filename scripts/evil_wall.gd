@@ -59,7 +59,8 @@ func _process(delta):
 		move_walls(1, room_anger * 10, delta)
 	pass
 	#print(60 - fmod(time_total, 60.0))
-	label.text = (str(int((120 - time_total) / 60)) + ":" + str(int( 60 - fmod(time_total, 60.0))) )
+	#label.text = (str(int((120 - time_total) / 60)) + ":" + str(int( 60 - fmod(time_total, 60.0))) )
+	label.text = str(int( 60 - fmod(time_total, 60.0)))
 func game_won():
 	#print("won")
 	get_parent().find_child("Enemy_controller").game_won = true
