@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-var move_speed:float = 200.0
+var move_speed:float = 8000.0
 @onready var nav_agent = $"NavigationAgent2D"
 var player
 
@@ -34,7 +34,7 @@ func actor_setup():
 func _process(delta):
 	match state:
 		MOVE:
-			move_action()
+			move_action(delta)
 		DIE:
 			die_action()
 	pass
@@ -42,10 +42,10 @@ func _process(delta):
 func set_movement_target(target: Vector2):
 	nav_agent.target_position = target
 
-func move_action():
+func move_action(delta):
 	set_movement_target(player.position)
 	
-	velocity = global_position.direction_to(nav_agent.get_next_path_position()) * move_speed
+	velocity = global_position.direction_to(nav_agent.get_next_path_position()) * move_speed * delta
 	move_and_slide()
 
 func die_action():

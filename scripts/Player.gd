@@ -1,11 +1,11 @@
 extends CharacterBody2D
 
-@export var speed = 400
+@export var speed = 14000
 
 enum {
 	MOVE,
 	FROZEN,
-	DIE	
+	DIE
 }
 
 func get_input():
@@ -13,6 +13,6 @@ func get_input():
 	return  Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down").normalized()
 
 func _physics_process(_delta):
-	velocity = get_input() * speed
+	velocity = get_input() * speed * _delta
 	move_and_slide()
 
