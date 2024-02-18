@@ -1,35 +1,40 @@
 extends Node2D
 
+var health
+@onready var health0 = $Heart0
+@onready var health1 = $Heart1
+@onready var health2 = $Heart2
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	var health = 6
-	$Heart0.set_frame(0)
-	$Heart1.set_frame(0)
-	$Heart2.set_frame(0)
+	health = 4
+	health0.frame = 0
+	health1.frame = 0
+	health2.frame = 0
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	var health
-	if health == 6:
-		pass
-	elif health == 5:
-		$Heart2.set_frame(1)
-	elif health == 4:
-		$Heart2.set_frame(2)
-	elif health == 3:
-		$Heart1.set_frame(1)
-	elif health == 2:
-		$Heart1.set_frame(2)
-	elif health == 1:
-		$Heart1.set_frame(1)
-	elif health == 0:
-		$Heart1.set_frame(2)
+	health0.frame = 0
+	health1.frame = 0
+	health2.frame = 0
 	
-	if Input.is_action_pressed("ui_accept"):
-		take_damage()
-
+	match health:
+		6:
+			pass
+		5:
+			health2.frame = 1
+		4:
+			health2.frame = 2
+		3:
+			health1.frame = 1
+		2:
+			health1.frame = 2
+		1:
+			health0.frame = 1
+		0:
+			health0.frame = 2
+	
 func take_damage():
 	var health
-	health -= 1
 	if health <= 0:
-		health = 0
+		health -= 1
