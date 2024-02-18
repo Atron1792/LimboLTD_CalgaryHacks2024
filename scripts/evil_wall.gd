@@ -45,7 +45,7 @@ func _ready():
 func _process(delta):
 	time_total += delta
 	room_anger = time_total - player.score
-	print("room anger = ", room_anger, "time = ", time_total, "score = ", player.score)
+	#print("room anger = ", room_anger, "time = ", time_total, "score = ", player.score)
 	#TODO move walls individually
 	#TODO these numbers will all have to be refined
 	if(room_anger < 10):

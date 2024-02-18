@@ -26,7 +26,7 @@ enum {
 var state = MOVE
 var direction = RIGHT
 var shoot_timer = 0
-var invincibility_timer = 1
+var invincibility_timer = 0
 
 func get_input():
 	#var input_direction = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down").normalized()

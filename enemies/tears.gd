@@ -9,6 +9,9 @@ var flashing_timer = 0.2
 var type_eye_enemy = false
 var has_scored = false
 
+#1 = right, -1 = left
+var facing_direction = 1
+
 enum {
 	MOVE,
 	DIE,
@@ -46,7 +49,7 @@ func _process(delta):
 			die_action(delta)
 		DEAD:
 			dead_action(delta)
-	pass
+	sprite.scale.x = facing_direction
 
 func set_movement_target(target: Vector2):
 	nav_agent.target_position = target
@@ -56,6 +59,11 @@ func move_action(delta):
 	
 	velocity = global_position.direction_to(nav_agent.get_next_path_position()) * move_speed * delta
 	move_and_slide()
+	
+	if position.x < player.position.x:
+		facing_direction = -1
+	else:
+		facing_direction = 1
 
 func die_action(delta):
 	if not has_scored:
