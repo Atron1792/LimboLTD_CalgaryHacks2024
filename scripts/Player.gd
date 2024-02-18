@@ -87,30 +87,31 @@ func animations_moving(input_vector):
 		match direction:
 			RIGHT:
 				sprite.scale.x = 1
-				sprite.animation = "idle_right"
+				sprite.play("idle_right")
 			UP:
 				sprite.scale.x = 1
-				sprite.animation = "idle_up"
+				sprite.play("idle_up")
 			LEFT:
 				sprite.scale.x = -1
-				sprite.animation = "idle_right"
+				sprite.play("idle_right")
 			DOWN:
 				sprite.scale.x = 1
-				sprite.animation = "idle_down"
+				sprite.play("idle_down")
 	else:
 		match direction:
 			RIGHT:
 				sprite.scale.x = 1
-				sprite.animation = "walk_right"
+				sprite.play("walk_right")
 			UP:
 				sprite.scale.x = 1
-				sprite.animation = "walk_up"
+				sprite.play("walk_up")
 			LEFT:
 				sprite.scale.x = -1
-				sprite.animation = "walk_right"
+				sprite.play("walk_right")
 			DOWN:
 				sprite.scale.x = 1
-				sprite.animation = "walk_down"
+				sprite.play("walk_down")
+
 
 func frozen_function():
 	pass
@@ -122,6 +123,7 @@ func dead_function():
 	pass
 
 func shoot_bullet():
+	emit_signal("res://sounds/shot.wav")
 	var bullet = bullet_scene.instantiate()
 	bullet.position = position
 	if(direction == RIGHT or direction == LEFT):

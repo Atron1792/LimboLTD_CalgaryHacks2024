@@ -2,15 +2,13 @@
 
 importer="wav"
 type="AudioStreamWAV"
-
 uid="uid://b0h6j1xrie0r8"
-
-path="res://.godot/imported/dead player.wav-3f5290f8c7139a0688addcfbf83c1522.sample"
+path="res://.godot/imported/dead_player.wav-7788c66463e295c6ba679586bbcfaa32.sample"
 
 [deps]
 
-source_file="res://sounds/dead player.wav"
-dest_files=["res://.godot/imported/dead player.wav-3f5290f8c7139a0688addcfbf83c1522.sample"]
+source_file="res://sounds/dead_player.wav"
+dest_files=["res://.godot/imported/dead_player.wav-7788c66463e295c6ba679586bbcfaa32.sample"]
 
 [params]
 

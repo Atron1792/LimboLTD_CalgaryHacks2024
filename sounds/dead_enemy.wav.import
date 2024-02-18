@@ -2,14 +2,13 @@
 
 importer="wav"
 type="AudioStreamWAV"
-
 uid="uid://bvw0rbr40rng1"
-path="res://.godot/imported/dead enemy sound.wav-fb803ca54083c3b1bb72a9e1103d9dd1.sample"
+path="res://.godot/imported/dead_enemy.wav-aef771148e380480824f188b57b84b32.sample"
 
 [deps]
 
-source_file="res://sounds/dead enemy sound.wav"
-dest_files=["res://.godot/imported/dead enemy sound.wav-fb803ca54083c3b1bb72a9e1103d9dd1.sample"]
+source_file="res://sounds/dead_enemy.wav"
+dest_files=["res://.godot/imported/dead_enemy.wav-aef771148e380480824f188b57b84b32.sample"]
 
 [params]
 
