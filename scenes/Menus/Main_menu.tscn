@@ -6,6 +6,7 @@
 [sub_resource type="Theme" id="Theme_vsrjj"]
 
 [node name="MainMenu" type="Control"]
+top_level = true
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -14,6 +15,12 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 797.0
+offset_bottom = 600.0
+color = Color(1, 0.443137, 0.0941176, 1)
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
