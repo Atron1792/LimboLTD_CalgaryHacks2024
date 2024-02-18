@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scenes/Menus/start_button.gd" id="1_6v800"]
 [ext_resource type="Script" path="res://scenes/Menus/quit_button.gd" id="2_hktyo"]
-[ext_resource type="AudioStream" uid="uid://bihfhryrt5cjl" path="res://sounds/main music.wav" id="3_v0p40"]
+[ext_resource type="AudioStream" uid="uid://bkwoy3qs52xxi" path="res://sounds/main music.wav" id="3_v0p40"]
 [ext_resource type="Script" path="res://scenes/Menus/MainMenuMusic.gd" id="4_03a7w"]
 
 [sub_resource type="Theme" id="Theme_vsrjj"]
