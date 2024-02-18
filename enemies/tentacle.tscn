@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://b6e13k5y4cswk"]
+[gd_scene load_steps=14 format=3 uid="uid://b6e13k5y4cswk"]
 
 [ext_resource type="Texture2D" uid="uid://bxj3yfun1nla7" path="res://sprites/evilwall.png" id="1_wh8u7"]
 
@@ -76,19 +76,28 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_68rjh"]
 size = Vector2(30, 130)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0k204"]
+size = Vector2(20, 120)
+
 [node name="tentacle" type="RigidBody2D"]
-collision_layer = 2
-collision_mask = 9
+collision_layer = 0
+collision_mask = 0
 gravity_scale = 0.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -64)
 sprite_frames = SubResource("SpriteFrames_bsojr")
 animation = &"Default"
-autoplay = "Default"
 frame_progress = 0.155017
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -63)
 shape = SubResource("RectangleShape2D_68rjh")
-disabled = true
+
+[node name="EnemyHurtbox" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyHurtbox"]
+position = Vector2(0, -60)
+shape = SubResource("RectangleShape2D_0k204")

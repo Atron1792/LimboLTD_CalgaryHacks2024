@@ -56,9 +56,10 @@ func spawn_placeholder(position_x, position_y):
 	add_child(placeholder_enemy)
 
 func spawn_enemy(enemy_scene, position_x, position_y):
-	var instance = enemy_scene.instantiate()
-	instance.position = Vector2(position_x, position_y)
-	add_child(instance)
+	pass
+	#var instance = enemy_scene.instantiate()
+	#instance.position = Vector2(position_x, position_y)
+	#add_child(instance)
 
 func _on_eye_spawner_timeout():
 	if not block_eye_spawn:

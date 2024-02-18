@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bm5vkd4qol1oi" path="res://sprites/playerB.png" id="5_48r1e"]
 [ext_resource type="PackedScene" uid="uid://c8r056gap7nlk" path="res://scenes/health_system.tscn" id="6_vo3fc"]
 [ext_resource type="AudioStream" uid="uid://b5sqe5fmlejx1" path="res://sounds/shot.wav" id="7_tvdel"]
-[ext_resource type="AudioStream" uid="uid://2mp1hd15hvhq" path="res://sounds/dead_enemy.wav" id="8_fq4gd"]
+[ext_resource type="AudioStream" path="res://sounds/dead_enemy.wav" id="8_fq4gd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nw41x"]
 size = Vector2(13.3333, 26.6667)
