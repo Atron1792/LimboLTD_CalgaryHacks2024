@@ -116,19 +116,4 @@ func move_tentacles_bad(_wall:Node2D, _distance: float, _speed: float, _range_st
 
 func set_target_all_walls(target: float):
 	left_target = target
-	#right_target = 			
-	
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+	#right_target = 		

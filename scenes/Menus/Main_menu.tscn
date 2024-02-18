@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://crap16bkiqjpi"]
+[gd_scene load_steps=8 format=3 uid="uid://crap16bkiqjpi"]
 
 [ext_resource type="Texture2D" uid="uid://7ogl1q2qx3dd" path="res://sprites/doom-bigupper-start.png" id="1_3lqkf"]
 [ext_resource type="Script" path="res://scenes/Menus/start_button.gd" id="1_6v800"]
@@ -7,8 +7,6 @@
 [ext_resource type="AudioStream" uid="uid://bkwoy3qs52xxi" path="res://sounds/main music.wav" id="3_v0p40"]
 [ext_resource type="Script" path="res://scenes/Menus/MainMenuMusic.gd" id="4_03a7w"]
 [ext_resource type="Texture2D" uid="uid://bctb3f761j1f2" path="res://sprites/doom-bigupper-limbo-ltd.png" id="7_a3nps"]
-
-[sub_resource type="Theme" id="Theme_vsrjj"]
 
 [node name="MainMenu" type="Control"]
 top_level = true
@@ -26,19 +24,6 @@ layout_mode = 0
 offset_right = 797.0
 offset_bottom = 600.0
 color = Color(1, 0.443137, 0.0941176, 1)
-
-[node name="Label" type="Label" parent="."]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -72.0
-offset_top = 208.0
-offset_right = 40.0
-offset_bottom = 231.0
-grow_horizontal = 2
-theme = SubResource("Theme_vsrjj")
-horizontal_alignment = 1
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 1
