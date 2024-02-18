@@ -26,7 +26,8 @@ enum {
 var state = MOVE
 var direction = RIGHT
 var shoot_timer = 0
-var invincibility_timer = 1
+var invincibility_timer = 0
+var frozen_timer = 0.5
 
 func get_input():
 	#var input_direction = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down").normalized()
@@ -38,7 +39,7 @@ func _physics_process(delta):
 		MOVE:
 			move_function(delta)
 		FROZEN:
-			frozen_function()
+			frozen_function(delta)
 		DIE:
 			dead_function()
 
@@ -115,7 +116,15 @@ func animations_moving(input_vector):
 				sprite.scale.x = 1
 				sprite.play("walk_down")
 
-func frozen_function():
+func frozen_function(delta):
+	#TODO fix reliability issues
+	frozen_timer -= delta
+	sprite.modulate = Color(0,0,1)
+	if frozen_timer < 0:
+		frozen_timer = 0.5
+		state = MOVE
+		sprite.modulate = Color(1,1,1)
+	
 	pass
 
 func dead_function():
@@ -138,9 +147,14 @@ func shoot_bullet():
 func _on_hurtbox_area_entered(_area):
 	#TODO let area know they hit the player
 	#area.get_parent
-	print("hit")
-	if invincibility_timer < 0:
-		print("damage")
-		health_system.health -= 1
-		invincibility_timer = 1
+	#could prob do this through layers and masks
+	print(_area.name)
+	if(_area.name == "scream_area"):
+		if _area.enabled:
+			state = FROZEN
+	else:
+		if invincibility_timer < 0:
+			print("damage")
+			health_system.health -= 1
+			invincibility_timer = 1
 	pass # Replace with function body.

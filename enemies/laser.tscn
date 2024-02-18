@@ -1,7 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://pjm7sepv7dj1"]
+[gd_scene load_steps=4 format=3 uid="uid://duuj5cur5op7n"]
 
 [ext_resource type="Script" path="res://enemies/laser.gd" id="1_i5c4x"]
-[ext_resource type="Texture2D" uid="uid://ciwhqnvagkbk3" path="res://sprites/projectiles.png" id="2_qaoa0"]
+[ext_resource type="Texture2D" uid="uid://beh0db0ka00bi" path="res://sprites/projectiles.png" id="2_qaoa0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ph74r"]
 size = Vector2(26.6667, 5.33333)

@@ -3,19 +3,22 @@ extends CharacterBody2D
 var move_speed:float = 8000.0
 @onready var nav_agent = $"NavigationAgent2D"
 @onready var sprite = $AnimatedSprite2D
+@onready var scream_area = $scream_area
 var player
 var type_eye_enemy = false
 var has_scored = false
 
+
 enum {
 	MOVE,
-	SCREAM,
-	DIE
+	DIE,
+	SCREAM
 }
 
 var state = MOVE
 var ghost_health = 2
 var death_timer = 2
+var scream_timer = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -36,10 +39,11 @@ func _process(delta):
 	match state:
 		MOVE:
 			move_action(delta)
-		SCREAM:
-			scream_action(delta)
 		DIE:
 			die_action(delta)
+		SCREAM:
+			scream_action(delta)
+		
 
 func set_movement_target(target: Vector2):
 	nav_agent.target_position = target
@@ -48,14 +52,21 @@ func move_action(delta):
 	set_movement_target(player.position)
 	velocity = global_position.direction_to(nav_agent.get_next_path_position()) * move_speed * delta
 	move_and_slide()
-	if(ghost_health > 0):
-		ghost_health = ghost_health - 1
-	if (ghost_health <= 0):
-		state = DIE
+	scream_timer -= delta
+	
+	
 	
 		
 func scream_action(delta):
 	sprite.animation = "screaming"
+	if sprite.frame == 3:
+		scream_area.enabled = true
+		modulate = Color(0.7,0.7,1)
+	if(sprite.frame == 6):
+		state = MOVE
+		modulate = Color(1,1,1)
+		scream_area.enabled = false
+		sprite.animation = "default"
 
 func die_action(delta):
 	if not has_scored:
@@ -69,9 +80,19 @@ func get_player():
 	player = get_parent().player
 
 func _on_enemy_hurtbox_area_entered(area):
+	if(ghost_health > 0):
+		ghost_health = ghost_health - 1
+	if (ghost_health <= 0):
+		state = DIE
 	print("ghost collision")
-	state = MOVE
+	#TODO color change for a bit
 
 func _on_timer_timeout():
 	state = SCREAM
 	
+
+
+func _on_scream_area_area_entered(area):
+	if state == MOVE and scream_timer < 0:
+		scream_timer = 2
+		state = SCREAM

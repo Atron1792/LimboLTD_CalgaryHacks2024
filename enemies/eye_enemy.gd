@@ -59,7 +59,7 @@ func _on_laser_rate_timeout():
 	laser.player = player
 	laser.position.x = position.x
 	laser.position.y = position.y - 40
-	laser.target = position.direction_to(player.position)
+	laser.target = laser.position.direction_to(player.position)
 	get_parent().get_parent().add_child(laser)
 	
 func _on_enemy_hurtbox_area_entered(area):

@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://grr04fm1tsx7" path="res://sprites/tear_boom.png" id="3_krb43"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_81muv"]
-size = Vector2(14, 19)
+size = Vector2(13.5, 14)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_talvh"]
 atlas = ExtResource("2_grafb")
@@ -111,7 +111,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0k204"]
-size = Vector2(27, 31)
+size = Vector2(32, 37)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pys6g"]
 size = Vector2(23, 25)
@@ -123,7 +123,7 @@ collision_mask = 11
 script = ExtResource("1_0vgg6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -9.5)
+position = Vector2(0.75, -9.5)
 shape = SubResource("RectangleShape2D_81muv")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -141,12 +141,12 @@ collision_layer = 4
 collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyHitbox"]
-position = Vector2(0.5, -19.5)
+position = Vector2(1, -18.5)
 shape = SubResource("RectangleShape2D_0k204")
 
 [node name="EnemyHurtbox" type="Area2D" parent="."]
 collision_layer = 2
-collision_mask = 8
+collision_mask = 9
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyHurtbox"]
 position = Vector2(-0.5, -10.5)
