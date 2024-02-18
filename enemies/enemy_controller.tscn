@@ -6,9 +6,9 @@
 script = ExtResource("1_6qwsh")
 
 [node name="placeholder_spawn" type="Timer" parent="."]
-autostart = true
 
 [node name="eye_spawner" type="Timer" parent="."]
+one_shot = true
 autostart = true
 
 [node name="Timer2" type="Timer" parent="."]
