@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://b5cg7auknjexj"]
+[gd_scene load_steps=23 format=3 uid="uid://b5cg7auknjexj"]
 
 [ext_resource type="Texture2D" uid="uid://da08sqdaprtpl" path="res://sprites/enemy_ghost.png" id="1_0t2hc"]
 [ext_resource type="Script" path="res://enemies/ghost.gd" id="1_6u2vs"]
+[ext_resource type="Texture2D" uid="uid://bemss4pj15u84" path="res://sprites/ghost_scream.png" id="3_t28gg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_81muv"]
 size = Vector2(17, 32)
@@ -13,6 +14,62 @@ region = Rect2(0, 0, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_5sw45"]
 atlas = ExtResource("1_0t2hc")
 region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5dq04"]
+atlas = ExtResource("3_t28gg")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lbj0x"]
+atlas = ExtResource("3_t28gg")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_86a80"]
+atlas = ExtResource("3_t28gg")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ppeqs"]
+atlas = ExtResource("3_t28gg")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dhxyo"]
+atlas = ExtResource("3_t28gg")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0gpxb"]
+atlas = ExtResource("3_t28gg")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nlg3x"]
+atlas = ExtResource("3_t28gg")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x4d6s"]
+atlas = ExtResource("3_t28gg")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dyjk2"]
+atlas = ExtResource("3_t28gg")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1qgsv"]
+atlas = ExtResource("3_t28gg")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_br6r0"]
+atlas = ExtResource("3_t28gg")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gdbvg"]
+atlas = ExtResource("3_t28gg")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_epqhd"]
+atlas = ExtResource("3_t28gg")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_84x3i"]
+atlas = ExtResource("3_t28gg")
+region = Rect2(192, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_gvu10"]
 animations = [{
@@ -26,6 +83,58 @@ animations = [{
 "loop": true,
 "name": &"default",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5dq04")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lbj0x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_86a80")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ppeqs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dhxyo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0gpxb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nlg3x")
+}],
+"loop": true,
+"name": &"end_scream",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x4d6s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dyjk2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1qgsv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_br6r0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gdbvg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_epqhd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_84x3i")
+}],
+"loop": true,
+"name": &"scream",
+"speed": 10.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0k204"]
@@ -37,12 +146,15 @@ collision_mask = 11
 script = ExtResource("1_6u2vs")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, 0)
+position = Vector2(0, -16)
 shape = SubResource("RectangleShape2D_81muv")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
+position = Vector2(0, -16)
 sprite_frames = SubResource("SpriteFrames_gvu10")
+animation = &"scream"
+frame_progress = 0.325936
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 
@@ -51,7 +163,7 @@ collision_layer = 2
 collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyHurtbox"]
-position = Vector2(-0.5, 0)
+position = Vector2(0, -16)
 shape = SubResource("RectangleShape2D_0k204")
 
 [connection signal="area_entered" from="EnemyHurtbox" to="." method="_on_enemy_hurtbox_area_entered"]
