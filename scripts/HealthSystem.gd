@@ -7,7 +7,8 @@ var health
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	health = 4
+	
+	health = 6
 	health0.frame = 0
 	health1.frame = 0
 	health2.frame = 0
@@ -27,12 +28,18 @@ func _process(delta):
 			health2.frame = 2
 		3:
 			health1.frame = 1
+			health2.frame = 2
 		2:
 			health1.frame = 2
+			health2.frame = 2
 		1:
 			health0.frame = 1
+			health1.frame = 2
+			health2.frame = 2
 		0:
 			health0.frame = 2
+			health1.frame = 2
+			health2.frame = 2
 	
 func take_damage():
 	var health

@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://dlp8omsjwlkrb"]
+
+[ext_resource type="Texture2D" uid="uid://bu0o3aonjal2t" path="res://sprites/doom-nightmare-youre-finished.png" id="1_346a0"]
+
+[node name="Game_over" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 800.0
+offset_bottom = 601.0
+color = Color(0.921569, 0.360784, 0.12549, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(400, 280)
+texture = ExtResource("1_346a0")

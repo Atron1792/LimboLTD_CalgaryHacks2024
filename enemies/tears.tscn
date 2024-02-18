@@ -111,9 +111,10 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0k204"]
-size = Vector2(18, 22)
+size = Vector2(23, 25)
 
 [node name="Tears" type="CharacterBody2D"]
+scale = Vector2(2, 2)
 collision_layer = 2
 collision_mask = 11
 script = ExtResource("1_0vgg6")
@@ -133,10 +134,10 @@ autoplay = "default"
 
 [node name="EnemyHurtbox" type="Area2D" parent="."]
 collision_layer = 2
-collision_mask = 8
+collision_mask = 9
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyHurtbox"]
-position = Vector2(0, -10)
+position = Vector2(-0.5, -10.5)
 shape = SubResource("RectangleShape2D_0k204")
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

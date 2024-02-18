@@ -4,6 +4,8 @@ extends CharacterBody2D
 
 @onready var sprite = $AnimatedSprite2D
 
+@onready var health_system = $HealthSystem
+
 var bullet_scene = load("res://Player/bullet.tscn")
 
 
@@ -25,6 +27,7 @@ enum {
 var state = MOVE
 var direction = RIGHT
 var shoot_timer = 0
+var invincibility_timer = 1
 
 func get_input():
 	#var input_direction = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down").normalized()
@@ -38,7 +41,7 @@ func _physics_process(delta):
 		FROZEN:
 			frozen_function()
 		DIE:
-			pass
+			dead_function()
 	
 
 func move_function(delta):
@@ -70,6 +73,8 @@ func move_function(delta):
 	#print(input_vector)
 	#handle animations
 	animations_moving()
+	if(health_system.health == 0):
+		state = DIE
 
 func animations_moving():
 	match direction:
@@ -89,6 +94,12 @@ func animations_moving():
 func frozen_function():
 	pass
 
+func dead_function():
+	#Death animation
+	get_parent().find_child("Game_over").visible = true
+
+	pass
+
 func shoot_bullet():
 	var bullet = bullet_scene.instantiate()
 	bullet.position = position
@@ -101,4 +112,8 @@ func shoot_bullet():
 	
 
 func _on_hurtbox_area_entered(area):
+	#TODO let area know they hit the player
+	#area.get_parent
+	if invincibility_timer < 0:
+		health_system.health -= 1
 	pass # Replace with function body.
