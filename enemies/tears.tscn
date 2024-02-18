@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://csqsptxma7ocs"]
+[gd_scene load_steps=16 format=3 uid="uid://csqsptxma7ocs"]
 
 [ext_resource type="Script" path="res://enemies/tears.gd" id="1_0vgg6"]
 [ext_resource type="Texture2D" uid="uid://bysa206qh7o0n" path="res://sprites/eye tears.png" id="1_ynk8a"]
+[ext_resource type="Texture2D" uid="uid://grr04fm1tsx7" path="res://sprites/tear_boom.png" id="3_krb43"]
 [ext_resource type="PackedScene" uid="uid://b7op0y3af6fu4" path="res://enemies/hitboxes_and_hurtboxes/enemy_hurtbox.tscn" id="3_qhp0m"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_81muv"]
@@ -15,6 +16,34 @@ region = Rect2(0, 0, 32, 32)
 atlas = ExtResource("1_ynk8a")
 region = Rect2(32, 0, 32, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_g87bd"]
+atlas = ExtResource("3_krb43")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hvw8f"]
+atlas = ExtResource("3_krb43")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gn88s"]
+atlas = ExtResource("3_krb43")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v1cgv"]
+atlas = ExtResource("3_krb43")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lbwp3"]
+atlas = ExtResource("3_krb43")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kg6ni"]
+atlas = ExtResource("3_krb43")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rqm2q"]
+atlas = ExtResource("3_krb43")
+region = Rect2(192, 0, 32, 32)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_ri2o7"]
 animations = [{
 "frames": [{
@@ -27,6 +56,32 @@ animations = [{
 "loop": true,
 "name": &"default",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g87bd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hvw8f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gn88s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v1cgv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lbwp3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kg6ni")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rqm2q")
+}],
+"loop": true,
+"name": &"die",
+"speed": 7.0
 }]
 
 [node name="Tears" type="CharacterBody2D"]
@@ -42,8 +97,9 @@ shape = SubResource("RectangleShape2D_81muv")
 texture_filter = 1
 position = Vector2(-1, -16)
 sprite_frames = SubResource("SpriteFrames_ri2o7")
+animation = &"die"
 autoplay = "default"
-frame_progress = 0.320425
+frame_progress = 0.0172385
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 
