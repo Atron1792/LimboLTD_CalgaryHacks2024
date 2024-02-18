@@ -69,6 +69,8 @@ func _process(delta):
 	label.text = str(int( 60 - fmod(time_total, 60.0)))
 func game_won():
 	if not has_won:
+		label.visible = false
+		label.top_level = false
 		get_parent().find_child("Enemy_controller").game_won = true
 		has_won = true
 	#get_parent().find_child("GameWin").visible = true
