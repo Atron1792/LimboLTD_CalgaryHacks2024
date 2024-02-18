@@ -4,8 +4,8 @@ var player
 
 @onready var left = $left
 @onready var right = $right
-@onready var up = $up
-@onready var down = $down
+@onready var top = $top
+@onready var bottom = $bottom
 
 var left_target = 0
 var right_target = 0
@@ -28,6 +28,7 @@ var room_anger = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	left.position.x = 130
 	var index = 0
 	#for tentacle in left.get_children():
 	#	left_tentacles[index][0] = tentacle
@@ -44,7 +45,7 @@ func _ready():
 func _process(delta):
 	time_total += delta
 	room_anger = time_total #- score
-	
+	move_walls(1, 1000, delta)
 	pass
 	
 func move_tentacle(tentacle:Node2D, target: float, speed: float):
@@ -69,7 +70,16 @@ func move_tentacle(tentacle:Node2D, target: float, speed: float):
 	#	position += speed * delta
 	#wall.position += Vector2(distancex, distancey)
 
-func move_walls(insoide:bool, spped:float, delta):
+#make direction 1 for in, -1 for out
+func move_walls(direction:int, speed:float, delta):
+	
+	#left.position.x = 200
+	#top.position.y = 100
+	#left.position.x += speed * direction * delta
+	left.position.x = 130
+	print(left.position.x)
+	#left.position.x = clamp(left.position.x, 0, 130)
+	print(left.position.x)
 	pass
 
 func get_player():
