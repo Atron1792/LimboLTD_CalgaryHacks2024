@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bu0o3aonjal2t" path="res://sprites/doom-nightmare-youre-finished.png" id="1_346a0"]
 
-[node name="Game_over" type="Control"]
+[node name="GameWin" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
