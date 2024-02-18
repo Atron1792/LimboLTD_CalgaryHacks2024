@@ -138,7 +138,7 @@ frame_progress = 0.655221
 [node name="EnemyHitbox" type="Area2D" parent="."]
 scale = Vector2(0.5, 0.5)
 collision_layer = 4
-collision_mask = 8
+collision_mask = 9
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyHitbox"]
 position = Vector2(1, -18.5)

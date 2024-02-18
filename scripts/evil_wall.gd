@@ -6,6 +6,7 @@ var player
 @onready var right = $right
 @onready var top = $top
 @onready var bottom = $bottom
+@onready var label = $Label
 
 var left_target = 0
 var right_target = 0
@@ -46,8 +47,8 @@ func _process(delta):
 	time_total += delta
 	room_anger = time_total - player.score
 	
-	#180?
-	if(time_total > 15):
+	#TODO 180?
+	if(time_total > 120):
 		game_won()
 	#print("room anger = ", room_anger, "time = ", time_total, "score = ", player.score)
 	#TODO move walls individually
@@ -57,9 +58,10 @@ func _process(delta):
 	else:
 		move_walls(1, room_anger * 10, delta)
 	pass
-	
+	#print(60 - fmod(time_total, 60.0))
+	label.text = (str(int((120 - time_total) / 60)) + ":" + str(int( 60 - fmod(time_total, 60.0))) )
 func game_won():
-	print("won")
+	#print("won")
 	get_parent().find_child("Enemy_controller").game_won = true
 	
 	#TODO move walls back, then destroy
