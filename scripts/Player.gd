@@ -71,12 +71,17 @@ func move_function(delta):
 	#print(input_vector)
 	#handle animations
 	animations_moving(input_vector)
-	invincibility_timer -= delta
 	
-	if invincibility_timer < 1:
-		#TODO anoone make the sprite red.
-		#sprite is a reference to the sprite.
+	
+	if invincibility_timer > 0:
+		# Set the color of the sprite to red
+		sprite.modulate = Color(1, 0, 0)  # Red
+		var hit_sound = $AudioStreamPlayer2
+		hit_sound.play()
+		invincibility_timer -= delta
 		pass
+	else: 
+		sprite.modulate = Color(1, 1, 1)  # Normal
 	if(health_system.health == 0):
 		state = DIE
 
