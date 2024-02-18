@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://c8r056gap7nlk"]
+
+[ext_resource type="Script" path="res://scripts/HealthSystem.gd" id="1_bhsep"]
+[ext_resource type="Texture2D" uid="uid://camsh2sq1yx40" path="res://sprites/hearts.png" id="2_54x2s"]
+
+[node name="HealthSystem" type="Node2D"]
+script = ExtResource("1_bhsep")
+
+[node name="Heart0" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("2_54x2s")
+hframes = 3
+frame = 2
+
+[node name="Heart1" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(16, 0)
+texture = ExtResource("2_54x2s")
+hframes = 3
+frame = 2
+
+[node name="Heart2" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(32, 0)
+texture = ExtResource("2_54x2s")
+hframes = 3
+frame = 2
