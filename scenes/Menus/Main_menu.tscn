@@ -81,7 +81,7 @@ autoplay = true
 script = ExtResource("4_03a7w")
 
 [node name="Doom-bigupper-limbo-ltd" type="Sprite2D" parent="."]
-position = Vector2(404, 184)
+position = Vector2(400, 184)
 scale = Vector2(0.739382, 0.928571)
 texture = ExtResource("7_a3nps")
 
