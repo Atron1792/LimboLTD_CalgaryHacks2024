@@ -21,7 +21,7 @@ func _process(delta):
 	timer -= delta
 	#print(timer)
 	if timer < 0:
-		print("spawning")
+		#print("spawning")
 	#	spawn_placeholder(100,100)
 		timer = 2
 	pass

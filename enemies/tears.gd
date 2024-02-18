@@ -5,10 +5,12 @@ var move_speed:float = 8000.0
 @onready var sprite = $AnimatedSprite2D
 var player
 var death_timer = 10
+var flashing_timer = 0.2
 
 enum {
 	MOVE,
-	DIE
+	DIE,
+	DEAD
 }
 
 var state = MOVE
@@ -40,6 +42,8 @@ func _process(delta):
 			move_action(delta)
 		DIE:
 			die_action(delta)
+		DEAD:
+			dead_action(delta)
 	pass
 
 func set_movement_target(target: Vector2):
@@ -52,27 +56,44 @@ func move_action(delta):
 	move_and_slide()
 
 func die_action(delta):
+	sprite.animation = "die"
 	if(death_timer < 0):
 		queue_free()
-	if death_timer < 3:
-		#TODO flash, then despawn
-		pass
-	sprite.animation = "die"
+	
+		
+	
 	death_timer -= delta
 	
+func dead_action(delta):
+	sprite.animation = "dead"
+	
+	if flashing_timer < 0:
+		sprite.visible = !sprite.visible
+		flashing_timer = 0.2
+	if(death_timer < 0):
+		queue_free()
+	if death_timer < 1:
+		flashing_timer -= delta
+	death_timer -= delta
 
 func get_player():
 	player = get_parent().player
+	
 
 
 
 func _on_enemy_hurtbox_area_entered(area):
-	print("collision")
+	#TODO check if bullet.
 	state = DIE
 
 
 
 func _on_animated_sprite_2d_animation_finished():
-	if sprite.animation = "die":
-		sprite.animation = "dead"
+	state = DEAD
+	#print(sprite.animation)
+	#if sprite.animation == "die":
+	#	print("changed to dead")
+	#sprite.animation = "dead"
+	#	#sprite.play()
+	#print(sprite.animation)
 	pass # Replace with function body.
