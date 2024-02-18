@@ -14,7 +14,7 @@ func _ready():
 	health2.frame = 0
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	health0.frame = 0
 	health1.frame = 0
 	health2.frame = 0
@@ -42,6 +42,5 @@ func _process(delta):
 			health2.frame = 2
 	
 func take_damage():
-	var health
 	if health <= 0:
 		health -= 1

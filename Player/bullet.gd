@@ -8,7 +8,6 @@ enum {
 }
 
 var speed = 300
-
 var direction
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -18,7 +17,6 @@ func _ready():
 		LEFT:
 			position.x += 10
 	pass # Replace with function body.
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -31,7 +29,6 @@ func _process(delta):
 			position.x -= speed * delta
 		DOWN:
 			position.y += speed * delta
-
 
 func _on_area_2d_area_entered(area):
 	pass # Replace with function body.

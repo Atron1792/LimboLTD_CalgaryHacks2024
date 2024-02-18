@@ -6,7 +6,7 @@ extends Button
 func _ready():
 	process_mode = Node.PROCESS_MODE_ALWAYS
 
-func _process(delta):
+func _process(_delta):
 	#TODO bug when pressing pause in main menu
 	if(Input.is_action_pressed("pause_game")):
 		paused = true
