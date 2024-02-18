@@ -9,6 +9,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	#print("eye alive")
 	pass
 
 func get_player():
@@ -18,8 +19,13 @@ func shoot():
 	pass
 	
 func spawn_tear():
+	pass
+	
+
+
+
+func _on_tear_spawn_timeout():
 	var tear = tear_scene.instantiate()
 	tear.position = position
 	get_parent().add_child(tear)
-	
-
+	#pass # Replace with function body.
