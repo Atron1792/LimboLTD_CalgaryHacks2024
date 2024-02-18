@@ -1,11 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://byjoecq7frp25"]
+[gd_scene load_steps=9 format=3 uid="uid://byjoecq7frp25"]
 
 [ext_resource type="Texture2D" uid="uid://fxrv8ltdtoml" path="res://sprites/bricks wall.png" id="1_fk8fh"]
 [ext_resource type="PackedScene" uid="uid://dlp8omsjwlkrb" path="res://scenes/game_over.tscn" id="1_ldl5a"]
 [ext_resource type="PackedScene" uid="uid://ddclrmjg64nag" path="res://Player/player.tscn" id="2_ckrwn"]
 [ext_resource type="PackedScene" uid="uid://b1kk6uke2r65a" path="res://enemies/enemy_controller.tscn" id="3_o2ti3"]
 [ext_resource type="PackedScene" uid="uid://ci8pq0lwjmjfs" path="res://scenes/evil_wall.tscn" id="4_4e2na"]
-[ext_resource type="PackedScene" uid="uid://c8r056gap7nlk" path="res://scenes/health_system.tscn" id="5_cv7k0"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_iwwqp"]
 vertices = PackedVector2Array(16, 16, -16, 16, -16, -16, 16, -16)
@@ -59,6 +58,3 @@ position = Vector2(0, 8)
 [node name="Game_over" parent="." instance=ExtResource("1_ldl5a")]
 visible = false
 top_level = true
-
-[node name="HealthSystem" parent="." instance=ExtResource("5_cv7k0")]
-position = Vector2(72, 72)
