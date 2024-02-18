@@ -1,7 +1,7 @@
 extends Node2D
 
 var placeholder_enemy_scene = load("res://scenes/mob.tscn")
-var eye_scene = load()
+var eye_scene = load("res://enemies/eye_enemy.tscn")
 @onready var timer = 2
 
 # Called when the node enters the scene tree for the first time.
@@ -26,9 +26,13 @@ func spawn_placeholder(position_x, position_y):
 	placeholder_enemy.position = Vector2(position_x, position_y)
 	add_child(placeholder_enemy)
 
+func spawn_enemy(enemy_scene, position_x, position_y):
+	var instance = enemy_scene.instantiate()
+	instance.position = Vector2(position_x, position_y)
 
 func _on_eye_spawner_timeout():
 	var eye = eye_scene.instantiate()
+	add_child(eye)
 	pass # Replace with function body.
 
 
