@@ -83,13 +83,13 @@ func move_walls(direction:int, speed:float, delta):
 	#top.position.y = 100
 	#left.position.x += speed * direction * delta
 	left.position.x  += speed * delta * direction
-	left.position.x = clamp(left.position.x, 0, 130)
+	left.position.x = clamp(left.position.x, 0, 125)
 	
 	right.position.x  -= speed * delta * direction
-	right.position.x = clamp(right.position.x, 670, 800)
+	right.position.x = clamp(right.position.x, 675, 800)
 	
 	top.position.y  += speed * delta * direction
-	top.position.y = clamp(top.position.y, 0, 130)
+	top.position.y = clamp(top.position.y, 0, 120)
 	
 	bottom.position.y  -= speed * delta * direction
 	bottom.position.y = clamp(bottom.position.y, 470, 600)
