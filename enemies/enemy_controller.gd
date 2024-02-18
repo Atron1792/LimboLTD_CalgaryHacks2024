@@ -5,11 +5,13 @@ var eye_scene = load("res://enemies/eye_enemy.tscn")
 var ghost_scene = load("res://enemies/ghost.tscn")
 @onready var timer = 2
 @onready var ghost_timer = $ghost_spawner
+@onready var eye_timer = $eye_spawner
 
 var difficulty = 0
 var eye_enemy_number
 var block_eye_spawn
 var player
+var spawn_rate_increase_timer = 0
 
 #TODO remove one shot from timers
 
@@ -28,6 +30,12 @@ func get_player():
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	
+	spawn_rate_increase_timer += delta
+	if(spawn_rate_increase_timer > 30):
+		eye_timer.wait_time *= 0.7
+		ghost_timer.wait_time *= 0.7
+	
 	difficulty += delta
 	ghost_timer.wait_time = difficulty * 2
 	eye_enemy_number = 0
@@ -56,7 +64,7 @@ func _on_eye_spawner_timeout():
 	if not block_eye_spawn:
 		var eye = eye_scene.instantiate()
 		#TODO replace with actual values 
-		spawn_enemy(eye_scene, randi_range(40,400), randi_range(40,400))
+		spawn_enemy(eye_scene, randi_range(170,400), randi_range(170,300))
 
 
 func _on_placeholder_spawn_timeout():

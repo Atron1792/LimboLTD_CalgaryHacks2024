@@ -5,6 +5,7 @@ var move_speed:float = 8000.0
 @onready var sprite = $AnimatedSprite2D
 var player
 var type_eye_enemy = false
+var has_scored = false
 
 enum {
 	MOVE,
@@ -51,6 +52,9 @@ func move_action(delta):
 		state = DIE
 
 func die_action(delta):
+	if not has_scored:
+		player.score += 1
+		has_scored = true
 	death_timer -= delta
 	if (death_timer <= 0):
 		queue_free()
