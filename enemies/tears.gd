@@ -84,7 +84,8 @@ func get_player():
 
 func _on_enemy_hurtbox_area_entered(area):
 	#TODO check if bullet.
-	state = DIE
+	if state == MOVE:
+		state = DIE
 
 
 
