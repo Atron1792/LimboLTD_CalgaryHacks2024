@@ -60,6 +60,8 @@ func move_action(delta):
 func scream_action(delta):
 	sprite.animation = "screaming"
 	if sprite.frame == 3:
+		var scream_sound = $AudioStreamPlayer
+		scream_sound.play()
 		scream_area.enabled = true
 		modulate = Color(0.7,0.7,1)
 	if(sprite.frame == 6):
