@@ -50,14 +50,16 @@ func move_function(delta):
 	#TODO change to shoot action?
 	if Input.is_action_pressed("ui_accept") and shoot_timer < 0:
 		shoot_bullet()
+		shoot_timer = 0.5
 	
 	#decide direction
 	#priority on left/right
 	#up/down is set first so it will be overwrittens
 	#There is a better way of doing this
+
 	if(input_vector.y != 0 and input_vector.y < 0):
 		direction = UP
-	else:
+	elif(input_vector.y != 0):
 		direction = DOWN
 	#input_vector.y > 0 ? direction = UP : direction = DOWN
 	if(input_vector.x != 0 and input_vector.x > 0):
@@ -65,6 +67,7 @@ func move_function(delta):
 	elif(input_vector.x != 0):
 		direction = LEFT
 	
+	#print(input_vector)
 	#handle animations
 	animations_moving()
 
@@ -91,6 +94,9 @@ func frozen_function():
 func shoot_bullet():
 	var bullet = bullet_scene.instantiate()
 	bullet.position = position
+	if(direction == RIGHT or direction == LEFT):
+		bullet.position.y += 10
+	bullet.direction = direction
 	
 	get_parent().add_child(bullet)
 	
