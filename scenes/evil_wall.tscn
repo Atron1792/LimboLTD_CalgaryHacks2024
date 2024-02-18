@@ -412,16 +412,3 @@ rotation = 1.5708
 [node name="tentacle25" parent="top" instance=ExtResource("2_br8ii")]
 position = Vector2(-128, 784)
 rotation = 1.5708
-
-[node name="Label" type="Label" parent="."]
-texture_filter = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = 725.0
-offset_top = -10.0
-offset_right = 760.0
-offset_bottom = 13.0
-grow_horizontal = 0
-scale = Vector2(2, 2)
-text = "2:00"
