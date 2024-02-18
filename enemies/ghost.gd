@@ -4,7 +4,6 @@ var move_speed:float = 8000.0
 @onready var nav_agent = $"NavigationAgent2D"
 @onready var sprite = $AnimatedSprite2D
 var player
-var death_timer = 2
 
 enum {
 	MOVE,
@@ -13,6 +12,7 @@ enum {
 
 var state = MOVE
 var ghost_health = 2
+var death_timer = 2
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -25,7 +25,6 @@ func _ready():
 func actor_setup():
 	# Wait for the first physics frame so the NavigationServer can sync.
 	await get_tree().physics_frame
-
 	# Now that the navigation map is no longer empty, set the movement target.
 	set_movement_target(player.position)
 
@@ -48,11 +47,11 @@ func move_action(delta):
 	if(ghost_health > 0):
 		ghost_health = ghost_health - 1
 	if (ghost_health <= 0):
-		die_action(delta)
+		state = DIE
 
 func die_action(delta):
 	death_timer -= delta
-	if (death_timer == 0):
+	if (death_timer <= 0):
 		queue_free()
 
 func get_player():
@@ -60,4 +59,4 @@ func get_player():
 
 func _on_enemy_hurtbox_area_entered(area):
 	print("ghost collision")
-	state = DIE
+	state = MOVE
