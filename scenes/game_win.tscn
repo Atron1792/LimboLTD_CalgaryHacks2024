@@ -1,8 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://cjk5pippewa22"]
+[gd_scene load_steps=2 format=3 uid="uid://bon5ngtwisepg"]
 
 [ext_resource type="Texture2D" uid="uid://ks8tt5p5wnbw" path="res://sprites/doom-bigupper-youre-finished-but-in-a-good-way.png" id="1_m44jt"]
 
 [node name="GameWin" type="Control"]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -14,7 +15,7 @@ grow_vertical = 2
 layout_mode = 0
 offset_right = 800.0
 offset_bottom = 601.0
-color = Color(0.984314, 0.4, 0.117647, 0.592157)
+color = Color(0.984314, 0.4, 0.117647, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(400, 280)

@@ -27,6 +27,9 @@ var up_tentacles
 var time_total = 0
 var room_anger = 0
 
+var win_screen_timer = 3
+var has_won = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	#left.position.x = 1
@@ -48,8 +51,11 @@ func _process(delta):
 	room_anger = time_total - player.score
 	
 	#TODO 180?
-	if(time_total > 120):
+	if(time_total > 60):
 		game_won()
+		win_screen_timer -= delta
+		if(win_screen_timer < 0):
+			get_parent().find_child("GameWin").visible = true
 	#print("room anger = ", room_anger, "time = ", time_total, "score = ", player.score)
 	#TODO move walls individually
 	#TODO these numbers will all have to be refined
@@ -62,7 +68,10 @@ func _process(delta):
 	#label.text = (str(int((120 - time_total) / 60)) + ":" + str(int( 60 - fmod(time_total, 60.0))) )
 	label.text = str(int( 60 - fmod(time_total, 60.0)))
 func game_won():
-	get_parent().find_child("GameWin").visible = true
+	if not has_won:
+		get_parent().find_child("Enemy_controller").game_won = true
+		has_won = true
+	#get_parent().find_child("GameWin").visible = true
 
 func move_tentacle(tentacle:Node2D, target: float, _speed: float):
 	if((tentacle.parent.name == "left" or tentacle.parent.name == "right")):
