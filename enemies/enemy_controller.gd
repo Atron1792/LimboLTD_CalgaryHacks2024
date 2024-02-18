@@ -19,13 +19,12 @@ func _ready():
 	pass # Replace with function body.
 
 func get_player():
-<<<<<<< Updated upstream
+
 	#player = get_tree().root.find_child("Player", true)
 	player = get_parent().find_child("Player")
 	print(player)
-=======
-	player = get_tree().root.find_child("Player", true)#get_parent().find_child("Player")
->>>>>>> Stashed changes
+
+
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
