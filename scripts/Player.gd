@@ -27,6 +27,7 @@ var state = MOVE
 var direction = RIGHT
 var shoot_timer = 0
 var invincibility_timer = 0
+var frozen_timer = 0.5
 
 func get_input():
 	#var input_direction = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down").normalized()
@@ -38,7 +39,7 @@ func _physics_process(delta):
 		MOVE:
 			move_function(delta)
 		FROZEN:
-			frozen_function()
+			frozen_function(delta)
 		DIE:
 			dead_function()
 
@@ -115,7 +116,15 @@ func animations_moving(input_vector):
 				sprite.scale.x = 1
 				sprite.play("walk_down")
 
-func frozen_function():
+func frozen_function(delta):
+	#TODO fix reliability issues
+	frozen_timer -= delta
+	sprite.modulate = Color(0,0,1)
+	if frozen_timer < 0:
+		frozen_timer = 0.5
+		state = MOVE
+		sprite.modulate = Color(1,1,1)
+	
 	pass
 
 func dead_function():
