@@ -77,19 +77,34 @@ func move_function(delta):
 		state = DIE
 
 func animations_moving():
-	match direction:
-		RIGHT:
-			sprite.scale.x = 1
-			sprite.animation = "walk_right"
-		UP:
-			sprite.scale.x = 1
-			sprite.animation = "walk_up"
-		LEFT:
-			sprite.scale.x = -1
-			sprite.animation = "walk_right"
-		DOWN:
-			sprite.scale.x = 1
-			sprite.animation = "walk_down"
+	if input_vector == Vector2.ZERO:
+		match direction:
+			RIGHT:
+				sprite.scale.x = 1
+				sprite.animation = "idle_right"
+			UP:
+				sprite.scale.x = 1
+				sprite.animation = "idle_up"
+			LEFT:
+				sprite.scale.x = -1
+				sprite.animation = "idle_right"
+			DOWN:
+				sprite.scale.x = 1
+				sprite.animation = "idle_down"
+	else:
+		match direction:
+			RIGHT:
+				sprite.scale.x = 1
+				sprite.animation = "walk_right"
+			UP:
+				sprite.scale.x = 1
+				sprite.animation = "walk_up"
+			LEFT:
+				sprite.scale.x = -1
+				sprite.animation = "walk_right"
+			DOWN:
+				sprite.scale.x = 1
+				sprite.animation = "walk_down"
 
 func frozen_function():
 	pass
