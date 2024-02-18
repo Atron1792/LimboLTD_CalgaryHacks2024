@@ -201,11 +201,3 @@ libraries = {
 [node name="shot_timer" type="Timer" parent="."]
 wait_time = 0.5
 autostart = true
-
-[node name="hurtbox" type="Area2D" parent="."]
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="hurtbox"]
-position = Vector2(0, -15)
-shape = SubResource("RectangleShape2D_nw41x")
-
-[connection signal="area_entered" from="hurtbox" to="." method="_on_hurtbox_area_entered"]
