@@ -22,6 +22,6 @@ sprite_frames = SubResource("SpriteFrames_7qmmj")
 scale = Vector2(0.3, 0.3)
 shape = SubResource("CapsuleShape2D_4mfb8")
 
-[node name="Icon" type="Sprite2D" parent="."]
-scale = Vector2(0.3, 0.3)
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1, -65)
 texture = ExtResource("2_fcb46")

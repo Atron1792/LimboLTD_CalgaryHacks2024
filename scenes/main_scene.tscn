@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://byjoecq7frp25"]
+[gd_scene load_steps=7 format=3 uid="uid://byjoecq7frp25"]
 
 [ext_resource type="Texture2D" uid="uid://fxrv8ltdtoml" path="res://sprites/bricks wall.png" id="1_fk8fh"]
 [ext_resource type="PackedScene" uid="uid://ddclrmjg64nag" path="res://Player/player.tscn" id="2_ckrwn"]
@@ -35,8 +35,6 @@ physics_layer_0/collision_layer = 1
 navigation_layer_0/layers = 1
 sources/0 = SubResource("TileSetAtlasSource_5gm6u")
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_xsbwm"]
-
 [node name="MainScene" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -48,33 +46,6 @@ layer_0/tile_data = PackedInt32Array(1179648, 0, 0, 1179649, 0, 0, 1179650, 0, 0
 position = Vector2(100, 100)
 scale = Vector2(1, 1)
 
-[node name="BoundaryBottom" type="StaticBody2D" parent="."]
-position = Vector2(400, 600)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BoundaryBottom"]
-shape = SubResource("WorldBoundaryShape2D_xsbwm")
-
-[node name="BoundaryBottom2" type="StaticBody2D" parent="."]
-position = Vector2(800, 300)
-rotation = -1.5708
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BoundaryBottom2"]
-shape = SubResource("WorldBoundaryShape2D_xsbwm")
-
-[node name="BoundaryRight" type="StaticBody2D" parent="."]
-position = Vector2(0, 300)
-rotation = 1.5708
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BoundaryRight"]
-shape = SubResource("WorldBoundaryShape2D_xsbwm")
-
-[node name="BoundaryTop" type="StaticBody2D" parent="."]
-position = Vector2(400, 0)
-rotation = 3.14159
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BoundaryTop"]
-shape = SubResource("WorldBoundaryShape2D_xsbwm")
+[node name="Enemy_controller" parent="." instance=ExtResource("3_o2ti3")]
 
 [node name="EnemySpawner" type="Node2D" parent="."]
-
-[node name="Enemy_controller" parent="." instance=ExtResource("3_o2ti3")]
