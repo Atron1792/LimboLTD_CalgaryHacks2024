@@ -77,7 +77,7 @@ func move_function(delta):
 		# Set the color of the sprite to red
 		sprite.modulate = Color(1, 0, 0)  # Red
 		var hit_sound = $AudioStreamPlayer2
-		hit_sound.play()
+		hit_sound.play("res://sounds/shot.wav")
 		invincibility_timer -= delta
 		pass
 	else: 

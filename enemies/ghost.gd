@@ -9,6 +9,7 @@ var has_scored = false
 
 enum {
 	MOVE,
+	SCREAM,
 	DIE
 }
 
@@ -35,9 +36,10 @@ func _process(delta):
 	match state:
 		MOVE:
 			move_action(delta)
+		SCREAM:
+			scream_action(delta)
 		DIE:
 			die_action(delta)
-	pass
 
 func set_movement_target(target: Vector2):
 	nav_agent.target_position = target
@@ -50,6 +52,10 @@ func move_action(delta):
 		ghost_health = ghost_health - 1
 	if (ghost_health <= 0):
 		state = DIE
+	
+		
+func scream_action(delta):
+	sprite.animation = "screaming"
 
 func die_action(delta):
 	if not has_scored:
@@ -65,3 +71,7 @@ func get_player():
 func _on_enemy_hurtbox_area_entered(area):
 	print("ghost collision")
 	state = MOVE
+
+func _on_timer_timeout():
+	state = SCREAM
+	

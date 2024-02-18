@@ -1,7 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://c0y3dn6l7l0h7"]
+[gd_scene load_steps=18 format=3 uid="uid://c0y3dn6l7l0h7"]
 
 [ext_resource type="Texture2D" uid="uid://da08sqdaprtpl" path="res://sprites/enemy_ghost.png" id="1_0t2hc"]
 [ext_resource type="Script" path="res://enemies/ghost.gd" id="1_6u2vs"]
+[ext_resource type="Texture2D" uid="uid://bemss4pj15u84" path="res://sprites/ghost_scream.png" id="3_d541j"]
+[ext_resource type="Script" path="res://enemies/ScreamCollision.gd" id="4_tt3hs"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_81muv"]
 size = Vector2(17, 32)
@@ -13,6 +15,34 @@ region = Rect2(0, 0, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_5sw45"]
 atlas = ExtResource("1_0t2hc")
 region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e173c"]
+atlas = ExtResource("3_d541j")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8qof6"]
+atlas = ExtResource("3_d541j")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_42tar"]
+atlas = ExtResource("3_d541j")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vx2lw"]
+atlas = ExtResource("3_d541j")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mr4cd"]
+atlas = ExtResource("3_d541j")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wwaqc"]
+atlas = ExtResource("3_d541j")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t6a1v"]
+atlas = ExtResource("3_d541j")
+region = Rect2(192, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_gvu10"]
 animations = [{
@@ -26,10 +56,39 @@ animations = [{
 "loop": true,
 "name": &"default",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e173c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8qof6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_42tar")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vx2lw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mr4cd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wwaqc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t6a1v")
+}],
+"loop": true,
+"name": &"screaming",
+"speed": 5.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0k204"]
 size = Vector2(17, 32)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vac0t"]
+radius = 48.0
 
 [node name="Ghost" type="CharacterBody2D"]
 collision_layer = 2
@@ -43,6 +102,9 @@ shape = SubResource("RectangleShape2D_81muv")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_gvu10")
+animation = &"screaming"
+frame = 5
+frame_progress = 0.302894
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 
@@ -54,4 +116,11 @@ collision_mask = 8
 position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_0k204")
 
+[node name="TimeBetweenScreams" type="Timer" parent="."]
+
+[node name="ScreamCollision" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_vac0t")
+script = ExtResource("4_tt3hs")
+
 [connection signal="area_entered" from="EnemyHurtbox" to="." method="_on_enemy_hurtbox_area_entered"]
+[connection signal="timeout" from="TimeBetweenScreams" to="." method="_on_timer_timeout"]
