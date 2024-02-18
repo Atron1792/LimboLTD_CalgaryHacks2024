@@ -219,7 +219,7 @@ shape = SubResource("RectangleShape2D_1ugai")
 
 [node name="HealthSystem" parent="." instance=ExtResource("6_vo3fc")]
 top_level = true
-position = Vector2(20, 20)
+position = Vector2(25, 25)
 scale = Vector2(3, 3)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
