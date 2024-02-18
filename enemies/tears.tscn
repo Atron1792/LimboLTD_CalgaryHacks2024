@@ -1,9 +1,10 @@
-[gd_scene load_steps=20 format=3 uid="uid://csqsptxma7ocs"]
+[gd_scene load_steps=21 format=3 uid="uid://csqsptxma7ocs"]
 
 [ext_resource type="Script" path="res://enemies/tears.gd" id="1_0vgg6"]
 [ext_resource type="Texture2D" uid="uid://bysa206qh7o0n" path="res://sprites/eye tears.png" id="1_ynk8a"]
 [ext_resource type="Texture2D" uid="uid://rl2qwqqbtkki" path="res://sprites/puddle.png" id="2_grafb"]
 [ext_resource type="Texture2D" uid="uid://grr04fm1tsx7" path="res://sprites/tear_boom.png" id="3_krb43"]
+[ext_resource type="AudioStream" uid="uid://bvw0rbr40rng1" path="res://sounds/dead_enemy.wav" id="5_c3vgr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_81muv"]
 size = Vector2(14, 19)
@@ -139,6 +140,9 @@ collision_mask = 9
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyHurtbox"]
 position = Vector2(-0.5, -10.5)
 shape = SubResource("RectangleShape2D_0k204")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_c3vgr")
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="area_entered" from="EnemyHurtbox" to="." method="_on_enemy_hurtbox_area_entered"]
