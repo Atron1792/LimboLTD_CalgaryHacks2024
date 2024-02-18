@@ -1,13 +1,41 @@
-[gd_scene load_steps=5 format=3 uid="uid://byjoecq7frp25"]
+[gd_scene load_steps=8 format=3 uid="uid://byjoecq7frp25"]
 
+[ext_resource type="Texture2D" uid="uid://fxrv8ltdtoml" path="res://sprites/bricks wall.png" id="1_fk8fh"]
 [ext_resource type="Script" path="res://scripts/Player.gd" id="1_gv03e"]
 [ext_resource type="Texture2D" uid="uid://dfa4ekr4xekei" path="res://icon.svg" id="2_we1ey"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5gm6u"]
+texture = ExtResource("1_fk8fh")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+0:1/0 = 0
+0:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:1/0/physics_layer_0/angular_velocity = 0.0
+1:1/0 = 0
+1:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:1/0/physics_layer_0/angular_velocity = 0.0
+1:0/0 = 0
+1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:0/0/physics_layer_0/angular_velocity = 0.0
+
+[sub_resource type="TileSet" id="TileSet_dqyij"]
+tile_size = Vector2i(32, 32)
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_5gm6u")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4lov7"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_xsbwm"]
 
 [node name="MainScene" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_dqyij")
+format = 2
+layer_0/tile_data = PackedInt32Array(1179648, 0, 0, 1179649, 0, 0, 1179650, 0, 0, 1179651, 0, 0, 1179652, 0, 0, 1179653, 0, 0, 1179654, 0, 0, 1179655, 0, 0, 1179656, 0, 0, 1179657, 0, 0, 1179658, 0, 0, 1179659, 0, 0, 1179660, 0, 0, 1179661, 0, 0, 1179662, 0, 0, 1179663, 0, 0, 1179664, 0, 0, 1179665, 0, 0, 1179666, 0, 0, 1179667, 0, 0, 1179668, 0, 0, 1179669, 0, 0, 1179670, 0, 0, 1179671, 0, 0, 1179672, 0, 0, 6, 0, 0, 7, 0, 0, 8, 0, 0, 9, 0, 0, 14, 0, 0, 15, 0, 0, 16, 0, 0, 17, 0, 0, 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 10, 0, 0, 11, 0, 0, 12, 0, 0, 13, 0, 0, 18, 0, 0, 19, 0, 0, 20, 0, 0, 21, 0, 0, 22, 0, 0, 23, 0, 0, 24, 0, 0, 655360, 0, 1342177280, 720896, 0, 1342177280, 589824, 0, 1342177280, 524288, 0, 1342177280, 458752, 0, 1342177280, 393216, 0, 1342177280, 327680, 0, 1342177280, 262144, 0, 1342177280, 196608, 0, 1342177280, 131072, 0, 1342177280, 65536, 0, 1342177280, 786432, 0, 1342177280, 851968, 0, 1342177280, 917504, 0, 1342177280, 983040, 0, 1342177280, 1048576, 0, 1342177280, 1114112, 0, 1342177280, 65560, 0, 1610612736, 131096, 0, 1610612736, 196632, 0, 1610612736, 262168, 0, 1610612736, 327704, 0, 1610612736, 393240, 0, 1610612736, 458776, 0, 1610612736, 524312, 0, 1610612736, 589848, 0, 1610612736, 655384, 0, 1610612736, 720920, 0, 1610612736, 786456, 0, 1610612736, 851992, 0, 1610612736, 917528, 0, 1610612736, 983064, 0, 1610612736, 1048600, 0, 1610612736, 1114136, 0, 1610612736)
 
 [node name="Player" type="CharacterBody2D" parent="."]
 position = Vector2(400, 300)
