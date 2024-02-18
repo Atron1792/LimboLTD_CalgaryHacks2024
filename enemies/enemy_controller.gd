@@ -44,6 +44,8 @@ func _on_placeholder_spawn_timeout():
 	pass # Replace with function body.
 	
 func _on_ghost_spawner_timeout():
-	var ghost = ghost_scene.instantiate()
 	spawn_enemy(ghost_scene, 300, 300)
+	#var ghost = ghost_scene.instantiate()
+	#spawn_enemy(ghost_scene, 300, 300)
+	#add_child(ghost)
 	pass # Replace with function body.
