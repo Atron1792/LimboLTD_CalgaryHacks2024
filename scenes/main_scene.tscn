@@ -1,12 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://byjoecq7frp25"]
+[gd_scene load_steps=8 format=3 uid="uid://byjoecq7frp25"]
 
 [ext_resource type="Texture2D" uid="uid://fxrv8ltdtoml" path="res://sprites/bricks wall.png" id="1_fk8fh"]
 [ext_resource type="PackedScene" uid="uid://ddclrmjg64nag" path="res://Player/player.tscn" id="2_ckrwn"]
 [ext_resource type="PackedScene" uid="uid://b1kk6uke2r65a" path="res://enemies/enemy_controller.tscn" id="3_o2ti3"]
 [ext_resource type="PackedScene" uid="uid://ci8pq0lwjmjfs" path="res://scenes/evil_wall.tscn" id="4_4e2na"]
-[ext_resource type="Script" path="res://scripts/MobSpawning.gd" id="5_c37ts"]
-[ext_resource type="PackedScene" uid="uid://c0y3dn6l7l0h7" path="res://enemies/ghost.tscn" id="6_gqhd8"]
-[ext_resource type="PackedScene" uid="uid://cwxp4nma5lqbl" path="res://enemies/eye_enemy.tscn" id="8_wafgu"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_iwwqp"]
 vertices = PackedVector2Array(16, 16, -16, 16, -16, -16, 16, -16)
@@ -39,12 +36,6 @@ physics_layer_0/collision_layer = 1
 navigation_layer_0/layers = 1
 sources/0 = SubResource("TileSetAtlasSource_5gm6u")
 
-[sub_resource type="Curve2D" id="Curve2D_brhfw"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 608, 0, 0, 0, 0, 800, 608, 0, 0, 0, 0, 800, 0, 0, 0, 0, 0, 0, 0)
-}
-point_count = 5
-
 [node name="MainScene" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -56,21 +47,9 @@ layer_0/tile_data = PackedInt32Array(1179648, 0, 0, 1179649, 0, 0, 1179650, 0, 0
 position = Vector2(302, 253)
 scale = Vector2(3, 3)
 
-[node name="EvilWall" parent="." instance=ExtResource("4_4e2na")]
-position = Vector2(0, 8)
-
-[node name="MobSpawning" type="Node2D" parent="."]
-script = ExtResource("5_c37ts")
-Enemy_controller = ExtResource("3_o2ti3")
-
-[node name="MobPath" type="Path2D" parent="MobSpawning"]
-curve = SubResource("Curve2D_brhfw")
-
-[node name="MobSpawnLocation" type="PathFollow2D" parent="MobSpawning/MobPath"]
-rotation = 1.5708
-
 [node name="Enemy_controller" parent="." instance=ExtResource("3_o2ti3")]
 
-[node name="Ghost" parent="Enemy_controller" instance=ExtResource("6_gqhd8")]
+[node name="EnemySpawner" type="Node2D" parent="."]
 
-[node name="EyeEnemy" parent="Enemy_controller" instance=ExtResource("8_wafgu")]
+[node name="EvilWall" parent="." instance=ExtResource("4_4e2na")]
+position = Vector2(0, 8)
