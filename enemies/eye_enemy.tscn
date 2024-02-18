@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://cwxp4nma5lqbl"]
+[gd_scene load_steps=7 format=3 uid="uid://cwxp4nma5lqbl"]
 
 [ext_resource type="Texture2D" uid="uid://dworc1vtcgu07" path="res://sprites/enemy_eye.png" id="1_6xb83"]
+[ext_resource type="Script" path="res://enemies/eye_enemy.gd" id="1_udeiv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_07p2j"]
 atlas = ExtResource("1_6xb83")
@@ -28,6 +29,7 @@ animations = [{
 size = Vector2(34, 36)
 
 [node name="Node2D" type="RigidBody2D"]
+script = ExtResource("1_udeiv")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -32)
