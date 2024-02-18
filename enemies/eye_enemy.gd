@@ -2,6 +2,7 @@ extends RigidBody2D
 
 var player = 0
 var tear_scene = load("res://enemies/tears.tscn")
+var type_eye_enemy = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -28,4 +29,5 @@ func _on_tear_spawn_timeout():
 	var tear = tear_scene.instantiate()
 	tear.position = position
 	get_parent().add_child(tear)
+	emit_signal("tears_spawned", +1)
 	#pass # Replace with function body.
