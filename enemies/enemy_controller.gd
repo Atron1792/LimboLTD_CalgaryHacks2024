@@ -17,8 +17,10 @@ func _ready():
 	pass # Replace with function body.
 
 func get_player():
-	player = get_tree().root.find_child("Player", true)#get_parent().find_child("Player")
-
+	#player = get_tree().root.find_child("Player", true)
+	player = get_parent().find_child("Player")
+	print(player)
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	difficulty += delta
@@ -44,6 +46,8 @@ func _on_placeholder_spawn_timeout():
 	pass # Replace with function body.
 	
 func _on_ghost_spawner_timeout():
-	var ghost = ghost_scene.instantiate()
-	spawn_enemy(ghost_scene, 300, 300)
+	#spawn_enemy(ghost_scene, 300, 300)
+	#var ghost = ghost_scene.instantiate()
+	#spawn_enemy(ghost_scene, 300, 300)
+	#add_child(ghost)
 	pass # Replace with function body.
