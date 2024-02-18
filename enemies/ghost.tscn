@@ -1,10 +1,11 @@
-[gd_scene load_steps=19 format=3 uid="uid://c0y3dn6l7l0h7"]
+[gd_scene load_steps=20 format=3 uid="uid://c0y3dn6l7l0h7"]
 
 [ext_resource type="Texture2D" uid="uid://da08sqdaprtpl" path="res://sprites/enemy_ghost.png" id="1_0t2hc"]
 [ext_resource type="Script" path="res://enemies/ghost.gd" id="1_6u2vs"]
 [ext_resource type="Texture2D" uid="uid://bemss4pj15u84" path="res://sprites/ghost_scream.png" id="3_d541j"]
 [ext_resource type="Script" path="res://enemies/scream_area.gd" id="4_0hm1r"]
 [ext_resource type="Script" path="res://enemies/ScreamCollision.gd" id="4_tt3hs"]
+[ext_resource type="AudioStream" uid="uid://rwxsn3ad8bla" path="res://sounds/ghost_scream.wav" id="6_v2kyj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_81muv"]
 size = Vector2(17, 32)
@@ -128,6 +129,9 @@ script = ExtResource("4_0hm1r")
 position = Vector2(0.5, -16)
 shape = SubResource("CircleShape2D_vac0t")
 script = ExtResource("4_tt3hs")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_v2kyj")
 
 [connection signal="area_entered" from="EnemyHurtbox" to="." method="_on_enemy_hurtbox_area_entered"]
 [connection signal="timeout" from="TimeBetweenScreams" to="." method="_on_timer_timeout"]
