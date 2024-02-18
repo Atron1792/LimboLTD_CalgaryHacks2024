@@ -37,6 +37,8 @@ func _physics_process(delta):
 			move_function(delta)
 		FROZEN:
 			frozen_function()
+		DIE:
+			pass
 	
 
 func move_function(delta):
@@ -51,35 +53,41 @@ func move_function(delta):
 	
 	#decide direction
 	#priority on left/right
-	#up/down is set first so it will be overwritten
+	#up/down is set first so it will be overwrittens
 	#There is a better way of doing this
 	if(input_vector.y != 0 and input_vector.y < 0):
 		direction = UP
 	else:
 		direction = DOWN
 	#input_vector.y > 0 ? direction = UP : direction = DOWN
-	if(input_vector.x < 0):
+	if(input_vector.x != 0 and input_vector.x > 0):
 		direction = RIGHT
-	else:
+	elif(input_vector.x != 0):
 		direction = LEFT
 	
 	#handle animations
 	animations_moving()
-	
+
 func animations_moving():
 	match direction:
 		RIGHT:
-			pass
+			sprite.scale.x = 1
+			sprite.animation = "walk_right"
 		UP:
+			sprite.scale.x = 1
+			#change animation to up
 			pass
 		LEFT:
-			pass
+			sprite.scale.x = -1
+			sprite.animation = "walk_right"
 		DOWN:
+			sprite.scale.x = 1
+			#change animation to down
 			pass
-	
+
 func frozen_function():
 	pass
-	
+
 func shoot_bullet():
 	var bullet = bullet_scene.instantiate()
 	bullet.position = position
