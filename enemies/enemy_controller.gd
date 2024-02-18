@@ -2,7 +2,11 @@ extends Node2D
 
 var placeholder_enemy_scene = load("res://scenes/mob.tscn")
 var eye_scene = load("res://enemies/eye_enemy.tscn")
+var ghost_scene = load("res://enemies/ghost.tscn")
 @onready var timer = 2
+@onready var ghost_timer = $ghost_spawner
+
+var difficulty = 0
 
 var player
 #TODO remove one shot from timers
@@ -18,13 +22,9 @@ func get_player():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	timer -= delta
-	#print(timer)
-	if timer < 0:
-		#print("spawning")
-	#	spawn_placeholder(100,100)
-		timer = 2
-	pass
+	difficulty += delta
+	
+	ghost_timer.wait_time = difficulty * 2
 	
 
 func spawn_placeholder(position_x, position_y):
@@ -42,8 +42,12 @@ func _on_eye_spawner_timeout():
 	#TODO replace with actual values 
 	spawn_enemy(eye_scene, 200, 200)
 
-
-
 func _on_placeholder_spawn_timeout():
 	spawn_placeholder(200,200)
+	pass # Replace with function body.
+
+
+func _on_ghost_spawner_timeout():
+	var ghost = ghost_scene.instantiate()
+	spawn_enemy(ghost_scene, 300, 300)
 	pass # Replace with function body.

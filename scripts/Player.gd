@@ -78,15 +78,13 @@ func animations_moving():
 			sprite.animation = "walk_right"
 		UP:
 			sprite.scale.x = 1
-			#change animation to up
-			pass
+			sprite.animation = "walk_up"
 		LEFT:
 			sprite.scale.x = -1
 			sprite.animation = "walk_right"
 		DOWN:
 			sprite.scale.x = 1
-			#change animation to down
-			pass
+			sprite.animation = "walk_down"
 
 func frozen_function():
 	pass
