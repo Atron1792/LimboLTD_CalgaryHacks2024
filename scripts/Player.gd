@@ -123,9 +123,12 @@ func dead_function():
 	pass
 
 func shoot_bullet():
-	emit_signal("res://sounds/shot.wav")
+	var shot_sound = $AudioStreamPlayer
+	shot_sound.play()
+	
 	var bullet = bullet_scene.instantiate()
-	bullet.position = position
+	bullet.position.x = position.x
+	bullet.position.y = position.y - 55
 	if(direction == RIGHT or direction == LEFT):
 		bullet.position.y += 10
 	bullet.direction = direction

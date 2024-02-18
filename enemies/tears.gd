@@ -6,6 +6,7 @@ var move_speed:float = 8000.0
 var player
 var death_timer = 10
 var flashing_timer = 0.2
+var type_eye_enemy = false
 
 enum {
 	MOVE,
@@ -56,6 +57,9 @@ func move_action(delta):
 	move_and_slide()
 
 func die_action(delta):
+	var die_sound = $AudioStreamPlayer
+	die_sound.play()
+	
 	sprite.animation = "die"
 	if(death_timer < 0):
 		queue_free()
