@@ -1,7 +1,12 @@
 [gd_scene format=3 uid="uid://bol4jt8c4qj75"]
 
 [node name="Bullet" type="RigidBody2D"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+collision_layer = 8
+collision_mask = 0
+gravity_scale = 0.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
