@@ -89,7 +89,7 @@ func _on_eye_spawner_timeout():
 	if not block_eye_spawn:
 		var _eye = eye_scene.instantiate()
 		#TODO replace with actual values 
-		spawn_enemy(eye_scene, randi_range(170,400), randi_range(170,300))
+		#spawn_enemy(eye_scene, randi_range(170,400), randi_range(170,300))
 
 
 func _on_placeholder_spawn_timeout():
