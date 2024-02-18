@@ -46,6 +46,7 @@ layer_0/tile_data = PackedInt32Array(1179648, 0, 0, 1179649, 0, 0, 1179650, 0, 0
 
 [node name="Player" parent="." instance=ExtResource("2_ckrwn")]
 position = Vector2(100, 100)
+scale = Vector2(1, 1)
 
 [node name="BoundaryBottom" type="StaticBody2D" parent="."]
 position = Vector2(400, 600)
