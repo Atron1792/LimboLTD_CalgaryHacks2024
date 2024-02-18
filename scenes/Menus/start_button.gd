@@ -30,6 +30,8 @@ func _on_pressed():
 		var simultaneous_scene = preload("res://scenes/main_scene.tscn").instantiate()
 		get_tree().root.add_child(simultaneous_scene)
 		$"../..".visible = false
+
+
 	
 
 
