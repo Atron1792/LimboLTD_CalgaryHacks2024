@@ -29,7 +29,7 @@ var room_anger = 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	#left.position.x = 1
-	var index = 0
+	var _index = 0
 	#for tentacle in left.get_children():
 	#	left_tentacles[index][0] = tentacle
 	#	index += 1
@@ -54,7 +54,7 @@ func _process(delta):
 		move_walls(1, room_anger * 10, delta)
 	pass
 	
-func move_tentacle(tentacle:Node2D, target: float, speed: float):
+func move_tentacle(tentacle:Node2D, target: float, _speed: float):
 	if((tentacle.parent.name == "left" or tentacle.parent.name == "right")):
 		if(tentacle.position.x < target):
 			pass
@@ -99,7 +99,7 @@ func move_walls(direction:int, speed:float, delta):
 func get_player():
 	player = get_parent().find_child("Player")
 
-func move_tentacles_bad(wall:Node2D, distance: float, speed: float, range_start: int, range_end:int):
+func move_tentacles_bad(_wall:Node2D, _distance: float, _speed: float, _range_start: int, _range_end:int):
 	#moves tentacles range_start to range_end by distance at speed
 	pass
 

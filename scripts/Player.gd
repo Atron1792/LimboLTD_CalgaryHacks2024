@@ -10,13 +10,11 @@ var bullet_scene = load("res://Player/bullet.tscn")
 
 var score = 0
 
-
 enum {
 	MOVE,
 	FROZEN,
 	DIE
 }
-
 
 enum {
 	RIGHT,
@@ -43,7 +41,6 @@ func _physics_process(delta):
 			frozen_function()
 		DIE:
 			dead_function()
-	
 
 func move_function(delta):
 	var input_vector = get_input()
@@ -113,14 +110,12 @@ func animations_moving(input_vector):
 				sprite.scale.x = 1
 				sprite.play("walk_down")
 
-
 func frozen_function():
 	pass
 
 func dead_function():
 	#Death animation
 	get_parent().find_child("Game_over").visible = true
-
 	pass
 
 func shoot_bullet():
@@ -133,12 +128,9 @@ func shoot_bullet():
 	if(direction == RIGHT or direction == LEFT):
 		bullet.position.y += 10
 	bullet.direction = direction
-	
 	get_parent().add_child(bullet)
 	
-	
-
-func _on_hurtbox_area_entered(area):
+func _on_hurtbox_area_entered(_area):
 	#TODO let area know they hit the player
 	#area.get_parent
 	print("hit")
