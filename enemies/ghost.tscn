@@ -28,10 +28,11 @@ animations = [{
 }]
 
 [node name="ghost" type="RigidBody2D"]
+texture_filter = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_ata40")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_gxkw0")
-frame_progress = 0.659916
+frame_progress = 0.705925
