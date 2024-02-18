@@ -75,10 +75,11 @@ func move_function(delta):
 	
 	
 	if invincibility_timer > 0:
+		print("changing invincibility")
 		# Set the color of the sprite to red
 		sprite.modulate = Color(1, 0, 0)  # Red
-		var hit_sound = $AudioStreamPlayer2
-		hit_sound.play("res://sounds/shot.wav")
+		var hit_sound = $AudioStreamPlayer
+		hit_sound.play()
 		invincibility_timer -= delta
 		pass
 	else: 
@@ -153,7 +154,8 @@ func _on_hurtbox_area_entered(_area):
 		if _area.enabled:
 			state = FROZEN
 	else:
-		if invincibility_timer < 0:
+		#print("almost damage = ", invincibility_timer)
+		if invincibility_timer <= 0:
 			print("damage")
 			health_system.health -= 1
 			invincibility_timer = 1
