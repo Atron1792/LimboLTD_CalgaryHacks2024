@@ -47,10 +47,15 @@ func move_action():
 	
 	velocity = global_position.direction_to(nav_agent.get_next_path_position()) * move_speed
 	move_and_slide()
-	
+
 func die_action():
+	print("dead")
 	pass
 
 func get_player():
 	player = get_parent().player
 
+
+
+func _on_enemy_hurtbox_area_entered(area):
+	state = DIE

@@ -45,6 +45,5 @@ func _on_eye_spawner_timeout():
 
 
 func _on_placeholder_spawn_timeout():
-	print("timer")
 	spawn_placeholder(200,200)
 	pass # Replace with function body.
