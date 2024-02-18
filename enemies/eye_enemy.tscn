@@ -28,7 +28,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_57rpf"]
 size = Vector2(34, 36)
 
-[node name="Node2D" type="RigidBody2D"]
+[node name="EyeEnemy" type="RigidBody2D"]
 gravity_scale = 0.0
 script = ExtResource("1_udeiv")
 
