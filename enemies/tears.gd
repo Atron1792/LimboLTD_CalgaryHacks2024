@@ -6,6 +6,7 @@ var move_speed:float = 8000.0
 var player
 var death_timer = 10
 var flashing_timer = 0.2
+var type_eye_enemy = false
 
 enum {
 	MOVE,
