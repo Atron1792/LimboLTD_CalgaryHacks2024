@@ -72,11 +72,11 @@ func move_function(delta):
 	
 	#print(input_vector)
 	#handle animations
-	animations_moving()
+	animations_moving(input_vector)
 	if(health_system.health == 0):
 		state = DIE
 
-func animations_moving():
+func animations_moving(input_vector):
 	if input_vector == Vector2.ZERO:
 		match direction:
 			RIGHT:

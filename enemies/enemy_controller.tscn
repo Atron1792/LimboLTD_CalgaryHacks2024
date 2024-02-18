@@ -16,7 +16,7 @@ autostart = true
 [node name="Timer3" type="Timer" parent="."]
 autostart = true
 
-[connection signal="timeout" from="placeholder_spawn" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="placeholder_spawn" to="." method="_on_placeholder_spawn_timeout"]
+[connection signal="timeout" from="placeholder_spawn" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="eye_spawner" to="." method="_on_eye_spawner_timeout"]
 [connection signal="timeout" from="ghost_spawner" to="." method="_on_ghost_spawner_timeout"]
