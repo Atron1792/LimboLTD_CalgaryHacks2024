@@ -75,7 +75,6 @@ func move_function(delta):
 	
 	
 	if invincibility_timer > 0:
-		print("changing invincibility")
 		# Set the color of the sprite to red
 		sprite.modulate = Color(1, 0, 0)  # Red
 		var hit_sound = $AudioStreamPlayer

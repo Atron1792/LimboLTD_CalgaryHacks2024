@@ -16,15 +16,10 @@ texture = ExtResource("2_qaoa0")
 hframes = 2
 frame = 1
 
-[node name="Area2D" type="Area2D" parent="."]
-visible = false
+[node name="laser_area" type="Area2D" parent="."]
 collision_layer = 4
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="laser_area"]
 shape = SubResource("RectangleShape2D_ph74r")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(3.17891e-07, -1.19209e-07)
-shape = SubResource("RectangleShape2D_ph74r")
-
-[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_entered" from="laser_area" to="." method="_on_area_2d_area_entered"]
