@@ -29,6 +29,7 @@ animations = [{
 size = Vector2(34, 36)
 
 [node name="Node2D" type="RigidBody2D"]
+gravity_scale = 0.0
 script = ExtResource("1_udeiv")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -39,3 +40,8 @@ sprite_frames = SubResource("SpriteFrames_cxdv8")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1, -28)
 shape = SubResource("RectangleShape2D_57rpf")
+
+[node name="tear_spawn" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="tear_spawn" to="." method="_on_tear_spawn_timeout"]

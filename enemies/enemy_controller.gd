@@ -5,6 +5,7 @@ var eye_scene = load("res://enemies/eye_enemy.tscn")
 @onready var timer = 2
 
 var player
+#TODO remove one shot from timers
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -13,7 +14,7 @@ func _ready():
 
 
 func get_player():
-	player = get_parent().find_node("Player")
+	player = get_parent().find_child("Player")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -34,6 +35,7 @@ func spawn_placeholder(position_x, position_y):
 func spawn_enemy(enemy_scene, position_x, position_y):
 	var instance = enemy_scene.instantiate()
 	instance.position = Vector2(position_x, position_y)
+	add_child(instance)
 
 func _on_eye_spawner_timeout():
 	var eye = eye_scene.instantiate()
