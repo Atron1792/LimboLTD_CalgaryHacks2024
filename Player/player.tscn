@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://ddclrmjg64nag"]
+[gd_scene load_steps=25 format=3 uid="uid://ddclrmjg64nag"]
 
 [ext_resource type="Script" path="res://scripts/Player.gd" id="1_k0jl5"]
 [ext_resource type="Texture2D" uid="uid://dfa4ekr4xekei" path="res://icon.svg" id="2_mkiro"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bd82swthyugjk" path="res://sprites/playerS.png" id="3_rw5ik"]
 [ext_resource type="Texture2D" uid="uid://bm5vkd4qol1oi" path="res://sprites/playerB.png" id="5_48r1e"]
 [ext_resource type="PackedScene" uid="uid://c8r056gap7nlk" path="res://scenes/health_system.tscn" id="6_vo3fc"]
+[ext_resource type="AudioStream" uid="uid://b5sqe5fmlejx1" path="res://sounds/shot.wav" id="7_20cjl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nw41x"]
 size = Vector2(13.3333, 26.6667)
@@ -170,5 +171,8 @@ shape = SubResource("RectangleShape2D_1ugai")
 top_level = true
 position = Vector2(20, 20)
 scale = Vector2(3, 3)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_20cjl")
 
 [connection signal="area_entered" from="hurtbox" to="." method="_on_hurtbox_area_entered"]

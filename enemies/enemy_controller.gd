@@ -32,9 +32,11 @@ func _process(delta):
 	ghost_timer.wait_time = difficulty * 2
 	eye_enemy_number = 0
 	block_eye_spawn = false
+	
 	for enemy in get_children():
-		if enemy.type_eye_enemy:
-			eye_enemy_number += 1
+		if not (enemy is Timer):
+			if enemy.type_eye_enemy:
+				eye_enemy_number += 1
 	if eye_enemy_number >= 3:
 		block_eye_spawn = true
 	else:

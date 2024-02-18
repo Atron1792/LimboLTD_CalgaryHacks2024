@@ -60,5 +60,3 @@ position = Vector2(0, 8)
 [node name="Game_over" parent="." instance=ExtResource("1_ldl5a")]
 visible = false
 top_level = true
-
-[editable path="EvilWall"]
