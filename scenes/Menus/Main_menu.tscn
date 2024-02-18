@@ -3,10 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://7ogl1q2qx3dd" path="res://sprites/doom-bigupper-start.png" id="1_3lqkf"]
 [ext_resource type="Script" path="res://scenes/Menus/start_button.gd" id="1_6v800"]
 [ext_resource type="Script" path="res://scenes/Menus/quit_button.gd" id="2_hktyo"]
-<<<<<<< Updated upstream
-=======
 [ext_resource type="Texture2D" uid="uid://desovln7tj7qr" path="res://sprites/doom-bigupper-quit.png" id="2_my56j"]
->>>>>>> Stashed changes
 [ext_resource type="AudioStream" uid="uid://bkwoy3qs52xxi" path="res://sounds/main music.wav" id="3_v0p40"]
 [ext_resource type="Script" path="res://scenes/Menus/MainMenuMusic.gd" id="4_03a7w"]
 [ext_resource type="Texture2D" uid="uid://bctb3f761j1f2" path="res://sprites/doom-bigupper-limbo-ltd.png" id="7_a3nps"]
