@@ -140,6 +140,6 @@ func _on_hurtbox_area_entered(area):
 	print("hit")
 	if invincibility_timer < 0:
 		print("damage")
-		health_system.health -= 1
+		#health_system.health -= 1
 		invincibility_timer = 1
 	pass # Replace with function body.

@@ -45,7 +45,11 @@ func _ready():
 func _process(delta):
 	time_total += delta
 	room_anger = time_total #- score
-	move_walls(1, 100, delta)
+	#TODO these numbers will all have to be refined
+	if(room_anger < 5):
+		move_walls(-1, 1/room_anger, delta)
+	else:
+		move_walls(1, room_anger * 10, delta)
 	pass
 	
 func move_tentacle(tentacle:Node2D, target: float, speed: float):
@@ -80,13 +84,13 @@ func move_walls(direction:int, speed:float, delta):
 	left.position.x = clamp(left.position.x, 0, 170)
 	
 	right.position.x  -= speed * delta * direction
-	right.position.x = clamp(right.position.x, 670, 800)
+	right.position.x = clamp(right.position.x, 630, 800)
 	
 	top.position.y  += speed * delta * direction
 	top.position.y = clamp(top.position.y, 0, 170)
 	
 	bottom.position.y  -= speed * delta * direction
-	bottom.position.y = clamp(bottom.position.y, 470, 600)
+	bottom.position.y = clamp(bottom.position.y, 430, 600)
 	
 	pass
 
