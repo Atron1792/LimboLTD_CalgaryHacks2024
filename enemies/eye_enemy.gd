@@ -56,7 +56,9 @@ func _on_tear_spawn_timeout():
 
 func _on_laser_rate_timeout():
 	var laser = laser_scene.instantiate()
-	laser.position = position
+	laser.player = player
+	laser.position.x = position.x
+	laser.position.y = position.y - 40
 	laser.target = position.direction_to(player.position)
 	get_parent().get_parent().add_child(laser)
 	
