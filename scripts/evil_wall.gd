@@ -62,11 +62,7 @@ func _process(delta):
 	#label.text = (str(int((120 - time_total) / 60)) + ":" + str(int( 60 - fmod(time_total, 60.0))) )
 	label.text = str(int( 60 - fmod(time_total, 60.0)))
 func game_won():
-	#print("won")
-	get_parent().find_child("Enemy_controller").game_won = true
-	
-	#TODO move walls back, then destroy
-	queue_free()
+	get_parent().find_child("../GameWin").visible = true
 
 func move_tentacle(tentacle:Node2D, target: float, _speed: float):
 	if((tentacle.parent.name == "left" or tentacle.parent.name == "right")):

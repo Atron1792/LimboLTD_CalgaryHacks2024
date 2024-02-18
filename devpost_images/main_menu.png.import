@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dsshmtyqufbeu"
-path="res://.godot/imported/icon_stretch_2.png-d06a4b4898c67820607cdb0ed75755a0.ctex"
+uid="uid://l4kowsqfhc5f"
+path="res://.godot/imported/main_menu.png-919cfeb4d2192a167faa524014c30e75.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/icon_stretch_2.png"
-dest_files=["res://.godot/imported/icon_stretch_2.png-d06a4b4898c67820607cdb0ed75755a0.ctex"]
+source_file="res://devpost_images/main_menu.png"
+dest_files=["res://.godot/imported/main_menu.png-919cfeb4d2192a167faa524014c30e75.ctex"]
 
 [params]
 
