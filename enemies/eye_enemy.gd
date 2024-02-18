@@ -19,6 +19,7 @@ func shoot():
 	
 func spawn_tear():
 	var tear = tear_scene.instantiate()
+	tear.position = position
 	get_parent().add_child(tear)
-
+	
 
