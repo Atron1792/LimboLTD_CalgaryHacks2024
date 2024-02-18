@@ -12,6 +12,11 @@ var speed = 300
 var direction
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	match direction:
+		RIGHT:
+			position.x += 10
+		LEFT:
+			position.x += 10
 	pass # Replace with function body.
 
 
