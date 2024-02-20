@@ -1,10 +1,10 @@
-extends CharacterBody2D
+extends KinematicBody2D
 
-@export var speed = 14000
+var speed = 14000
 
-@onready var sprite = $AnimatedSprite2D
+onready var sprite = $AnimatedSprite2D
 
-@onready var health_system = $HealthSystem
+onready var health_system = $HealthSystem
 
 var bullet_scene = load("res://Player/bullet.tscn")
 
@@ -45,8 +45,10 @@ func _physics_process(delta):
 
 func move_function(delta):
 	var input_vector = get_input()
-	velocity = input_vector * speed * delta
-	move_and_slide()
+	
+	
+	var velocity = input_vector * speed * delta
+	move_and_slide(velocity)
 	
 	shoot_timer -= delta
 	#TODO change to shoot action?
