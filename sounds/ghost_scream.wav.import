@@ -1,14 +1,13 @@
 [remap]
 
 importer="wav"
-type="AudioStreamWAV"
-uid="uid://rwxsn3ad8bla"
-path="res://.godot/imported/ghost_scream.wav-af260a4a99bfc823171389716952be31.sample"
+type="AudioStreamSample"
+path="res://.import/ghost_scream.wav-af260a4a99bfc823171389716952be31.sample"
 
 [deps]
 
 source_file="res://sounds/ghost_scream.wav"
-dest_files=["res://.godot/imported/ghost_scream.wav-af260a4a99bfc823171389716952be31.sample"]
+dest_files=[ "res://.import/ghost_scream.wav-af260a4a99bfc823171389716952be31.sample" ]
 
 [params]
 
@@ -18,7 +17,5 @@ force/max_rate=false
 force/max_rate_hz=44100
 edit/trim=false
 edit/normalize=false
-edit/loop_mode=0
-edit/loop_begin=0
-edit/loop_end=-1
+edit/loop=false
 compress/mode=0
