@@ -1,9 +1,9 @@
 extends Node2D
 
 var health
-@onready var health0 = $Heart0
-@onready var health1 = $Heart1
-@onready var health2 = $Heart2
+onready var health0 = $Heart0
+onready var health1 = $Heart1
+onready var health2 = $Heart2
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
