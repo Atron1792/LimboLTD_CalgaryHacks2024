@@ -1,5 +1,5 @@
 extends CharacterBody2D
-\
+
 enum {
 	MOVE,
 	DIE
@@ -33,13 +33,13 @@ func get_player():
 func shoot():
 	pass
 
-func move_function(delta):
+func move_function(_delta):
 	if health <= 0:
 		state = DIE
 	#TODO add movement
 	pass
 
-func die_function(delta):
+func die_function(_delta):
 	if not has_scored:
 		player.score += 1
 		has_scored = true
@@ -51,7 +51,7 @@ func _on_tear_spawn_timeout():
 	var tear = tear_scene.instantiate()
 	tear.position = position
 	get_parent().add_child(tear)
-	emit_signal("tears_spawned", +1)
+	#emit_signal("tears_spawned", +1)
 	#pass # Replace with function body.
 
 func _on_laser_rate_timeout():
@@ -62,5 +62,5 @@ func _on_laser_rate_timeout():
 	laser.target = laser.position.direction_to(player.position)
 	get_parent().get_parent().add_child(laser)
 	
-func _on_enemy_hurtbox_area_entered(area):
+func _on_enemy_hurtbox_area_entered(_area):
 	health -= 1

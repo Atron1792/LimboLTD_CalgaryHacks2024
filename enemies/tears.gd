@@ -95,12 +95,10 @@ func get_player():
 
 
 
-func _on_enemy_hurtbox_area_entered(area):
+func _on_enemy_hurtbox_area_entered(_area):
 	#TODO check if bullet.
 	if state == MOVE:
 		state = DIE
-
-
 
 func _on_animated_sprite_2d_animation_finished():
 	state = DEAD

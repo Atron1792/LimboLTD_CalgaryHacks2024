@@ -16,7 +16,5 @@ func _process(delta):
 	position.x += target.x * speed * delta
 	position.y += target.y * speed * delta
 	
-	
-	
-func _on_area_2d_area_entered(area):
+func _on_area_2d_area_entered(_area):
 	pass # Replace with function body.

@@ -57,7 +57,7 @@ func move_action(delta):
 	
 	
 		
-func scream_action(delta):
+func scream_action(_delta):
 	sprite.animation = "screaming"
 	if sprite.frame == 3:
 		var scream_sound = $AudioStreamPlayer
@@ -81,7 +81,7 @@ func die_action(delta):
 func get_player():
 	player = get_parent().player
 
-func _on_enemy_hurtbox_area_entered(area):
+func _on_enemy_hurtbox_area_entered(_area):
 	if(ghost_health > 0):
 		ghost_health = ghost_health - 1
 	if (ghost_health <= 0):
@@ -90,10 +90,8 @@ func _on_enemy_hurtbox_area_entered(area):
 
 func _on_timer_timeout():
 	state = SCREAM
-	
 
-
-func _on_scream_area_area_entered(area):
+func _on_scream_area_area_entered(_area):
 	if state == MOVE and scream_timer < 0:
 		scream_timer = 2
 		state = SCREAM

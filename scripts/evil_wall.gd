@@ -30,6 +30,8 @@ var room_anger = 0
 var win_screen_timer = 3
 var has_won = false
 
+const COUNTDOWN = 60
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	#left.position.x = 1
@@ -42,7 +44,7 @@ func _ready():
 	#var right_tentacles = right.get_children()
 	#var down_tentacles = down.get_children()
 	#var up_tentacles = up.get_children()
-	pass # Replace with function body.
+	pass
 	call_deferred("get_player")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -51,7 +53,7 @@ func _process(delta):
 	room_anger = time_total - player.score
 	
 	#TODO 180?
-	if(time_total > 60):
+	if(time_total > COUNTDOWN):
 		game_won()
 		win_screen_timer -= delta
 		if(win_screen_timer < 0):
@@ -66,7 +68,8 @@ func _process(delta):
 	pass
 	#print(60 - fmod(time_total, 60.0))
 	#label.text = (str(int((120 - time_total) / 60)) + ":" + str(int( 60 - fmod(time_total, 60.0))) )
-	label.text = str(int( 60 - fmod(time_total, 60.0)))
+	label.text = str(int(60 - fmod(time_total, 60.0)))
+
 func game_won():
 	if not has_won:
 		label.visible = false
@@ -99,7 +102,6 @@ func move_tentacle(tentacle:Node2D, target: float, _speed: float):
 
 #make direction 1 for in, -1 for out
 func move_walls(direction:int, speed:float, delta):
-	
 	#left.position.x = 200
 	#top.position.y = 100
 	#left.position.x += speed * direction * delta
@@ -114,16 +116,14 @@ func move_walls(direction:int, speed:float, delta):
 	
 	bottom.position.y  -= speed * delta * direction
 	bottom.position.y = clamp(bottom.position.y, 470, 600)
-	
 	pass
 
 func get_player():
 	player = get_parent().find_child("Player")
 
-func move_tentacles_bad(_wall:Node2D, _distance: float, _speed: float, _range_start: int, _range_end:int):
+#func move_tentacles_bad(_wall:Node2D, _distance: float, _speed: float, _range_start: int, _range_end:int):
 	#moves tentacles range_start to range_end by distance at speed
-	pass
 
-func set_target_all_walls(target: float):
-	left_target = target
+#func set_target_all_walls(target: float):
+	#left_target = target
 	#right_target = 		

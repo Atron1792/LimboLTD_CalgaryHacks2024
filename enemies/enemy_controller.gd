@@ -1,6 +1,6 @@
 extends Node2D
 
-var placeholder_enemy_scene = load("res://scenes/mob.tscn")
+var placeholder_enemy_scene 
 var eye_scene = load("res://enemies/eye_enemy.tscn")
 var ghost_scene = load("res://enemies/ghost.tscn")
 @onready var timer = 2
