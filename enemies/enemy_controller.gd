@@ -3,9 +3,17 @@ extends Node2D
 var placeholder_enemy_scene = load("res://scenes/mob.tscn")
 var eye_scene = load("res://enemies/eye_enemy.tscn")
 var ghost_scene = load("res://enemies/ghost.tscn")
-@onready var timer = 2
-@onready var ghost_timer = $ghost_spawner
-@onready var eye_timer = $eye_spawner
+
+
+
+onready var timer = 2
+onready var ghost_timer = $ghost_spawner
+onready var eye_timer = $eye_spawner
+
+export var eye_starting_time = 2
+export var ghost_starting_time = 2
+
+
 
 var game_won = false
 var destroy_timer = 3
@@ -24,6 +32,8 @@ var spawn_rate_increase_timer = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	eye_timer.wait_time = eye_starting_time
+	ghost_timer.wait_time = ghost_starting_time
 	call_deferred("get_player")
 	pass # Replace with function body.
 
@@ -76,20 +86,25 @@ func kill_all_children():
 				enemy.state = 1
 
 func spawn_placeholder(position_x, position_y):
-	var placeholder_enemy = placeholder_enemy_scene.instantiate()
+	var placeholder_enemy = placeholder_enemy_scene.instance()
 	placeholder_enemy.position = Vector2(position_x, position_y)
 	add_child(placeholder_enemy)
 
+#TODO chage
+#make x and y coordinates, plus left/right, up/down.
+#spawn at cords, just a bit outside the play area before moving in.
 func spawn_enemy(enemy_scene, position_x, position_y):
-	var instance = enemy_scene.instantiate()
+	var instance = enemy_scene.instance()
 	instance.position = Vector2(position_x, position_y)
 	add_child(instance)
 
 func _on_eye_spawner_timeout():
 	if not block_eye_spawn:
-		var _eye = eye_scene.instantiate()
+		var _eye = eye_scene.instance()
+		
 		#TODO replace with actual values 
-		spawn_enemy(eye_scene, randi_range(170,400), randi_range(170,300))
+		#TODO do better enemy spawning
+		spawn_enemy(eye_scene, randi() % 800, randi() % 600)
 
 
 func _on_placeholder_spawn_timeout():
@@ -98,8 +113,8 @@ func _on_placeholder_spawn_timeout():
 	
 func _on_ghost_spawner_timeout():
 	#spawn_enemy(ghost_scene, 300, 300)
-	#var ghost = ghost_scene.instantiate()
+	#var ghost = ghost_scene.instance()
 	#print("spaning ghost")
-	spawn_enemy(ghost_scene, randi_range(170,400), randi_range(170,300))
+	spawn_enemy(ghost_scene, randi() % 800, randi() % 600)
 	#add_child(ghost)
 	pass # Replace with function body.
