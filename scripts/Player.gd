@@ -2,9 +2,9 @@ extends KinematicBody2D
 
 var speed = 14000
 
-onready var sprite = $AnimatedSprite2D
-
+onready var sprite = $AnimatedSprite
 onready var health_system = $HealthSystem
+onready var shot_sound = $AudioStreamPlayer2D
 
 var bullet_scene = load("res://Player/bullet.tscn")
 
@@ -137,10 +137,10 @@ func dead_function():
 	pass
 
 func shoot_bullet():
-	var shot_sound = $AudioStreamPlayer
+	
 	shot_sound.play()
 	
-	var bullet = bullet_scene.instantiate()
+	var bullet = bullet_scene.instance()
 	bullet.position.x = position.x
 	bullet.position.y = position.y - 55
 	if(direction == RIGHT or direction == LEFT):
