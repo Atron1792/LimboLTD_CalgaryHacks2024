@@ -7,7 +7,7 @@ enum {
 	DOWN
 }
 
-var speed = 300
+var speed = 700
 var direction
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -30,6 +30,13 @@ func _process(delta):
 			position.x -= speed * delta
 		DOWN:
 			position.y += speed * delta
+			
+	
 
 func _on_area_2d_area_entered(area):
+	pass # Replace with function body.
+
+
+func _on_Area2D_area_entered(area):
+	queue_free()
 	pass # Replace with function body.

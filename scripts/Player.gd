@@ -1,10 +1,11 @@
 extends KinematicBody2D
 
-var speed = 14000
+var speed = 20000
 
 onready var sprite = $AnimatedSprite
 onready var health_system = $HealthSystem
 onready var shot_sound = $AudioStreamPlayer2D
+export var player_size = 1.5
 
 var bullet_scene = load("res://Player/bullet.tscn")
 
@@ -54,7 +55,7 @@ func move_function(delta):
 	#TODO change to shoot action?
 	if Input.is_action_pressed("ui_accept") and shoot_timer < 0:
 		shoot_bullet()
-		shoot_timer = 0.5
+		shoot_timer = 0.2
 	
 	#decide direction
 	#priority on left/right
@@ -88,34 +89,39 @@ func move_function(delta):
 	if(health_system.health == 0):
 		state = DIE
 
+
+
 func animations_moving(input_vector):
+	
+	sprite.scale.y = player_size
+	
 	if input_vector == Vector2.ZERO:
 		match direction:
 			RIGHT:
-				sprite.scale.x = 1
+				sprite.scale.x = player_size
 				sprite.play("idle_right")
 			UP:
-				sprite.scale.x = 1
+				sprite.scale.x = player_size
 				sprite.play("idle_up")
 			LEFT:
-				sprite.scale.x = -1
+				sprite.scale.x = -player_size
 				sprite.play("idle_right")
 			DOWN:
-				sprite.scale.x = 1
+				sprite.scale.x = player_size
 				sprite.play("idle_down")
 	else:
 		match direction:
 			RIGHT:
-				sprite.scale.x = 1
+				sprite.scale.x = player_size
 				sprite.play("walk_right")
 			UP:
-				sprite.scale.x = 1
+				sprite.scale.x = player_size
 				sprite.play("walk_up")
 			LEFT:
-				sprite.scale.x = -1
+				sprite.scale.x = -player_size
 				sprite.play("walk_right")
 			DOWN:
-				sprite.scale.x = 1
+				sprite.scale.x = player_size
 				sprite.play("walk_down")
 
 func frozen_function(delta):
