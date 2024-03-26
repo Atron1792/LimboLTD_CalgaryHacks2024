@@ -27,20 +27,17 @@ var player
 var spawn_rate_increase_timer = 0
 
 
-
-#TODO remove one shot from timers
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	eye_timer.wait_time = eye_starting_time
 	ghost_timer.wait_time = ghost_starting_time
 	call_deferred("get_player")
-	pass # Replace with function body.
 
 func get_player():
 
 	#player = get_tree().root.find_child("Player", true)
-	player = get_parent().find_child("Player")
+	#TODO this is unsafe, find way to find player
+	player = get_parent().get_child(2)
 	print(player)
 
 
@@ -97,8 +94,10 @@ func spawn_enemy(enemy_scene, position_x, position_y):
 	var instance = enemy_scene.instance()
 	instance.position = Vector2(position_x, position_y)
 	add_child(instance)
+	
 
 func _on_eye_spawner_timeout():
+	print("enemy spawned")
 	if not block_eye_spawn:
 		var _eye = eye_scene.instance()
 		
@@ -112,6 +111,7 @@ func _on_placeholder_spawn_timeout():
 	pass # Replace with function body.
 	
 func _on_ghost_spawner_timeout():
+	print("enemy spawned")
 	#spawn_enemy(ghost_scene, 300, 300)
 	#var ghost = ghost_scene.instance()
 	#print("spaning ghost")

@@ -5,7 +5,7 @@ onready var nav_agent = $"NavigationAgent2D"
 onready var sprite = $AnimatedSprite2D
 onready var scream_area = $scream_area
 
-var player
+var player:KinematicBody2D
 var type_eye_enemy = false
 var has_scored = false
 
@@ -26,15 +26,20 @@ func _ready():
 	nav_agent.path_desired_distance = 4.0
 	nav_agent.target_desired_distance = 4.0
 	
-	call_deferred("get_player")
+	#call_deferred("get_player")
 	call_deferred("actor_setup")
 
 func actor_setup():
 	# Wait for the first physics frame so the NavigationServer can sync.
 	#TODO make this work for 3.5
-	await get_tree().physics_frame
+	#yield(get_tree(), "main_scene")
+	var tree = get_parent().get_parent().get_children()
+	
+	for i in tree:
+		if i.name == "Player":
+			player = i
 	# Now that the navigation map is no longer empty, set the movement target.
-	set_movement_target(player.position)
+	#set_movement_target(player.position)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -48,13 +53,16 @@ func _process(delta):
 		
 
 func set_movement_target(target: Vector2):
-	nav_agent.target_position = target
+	nav_agent.set_target_location(target)
 
 func move_action(delta):
 	#TODO make navigation without agent???
-	set_movement_target(player.position)
-	velocity = global_position.direction_to(nav_agent.get_next_path_position()) * move_speed * delta
-	move_and_slide()
+	print(player)
+	print(player.position)
+	#set_movement_target(player.position)
+	#TODO movement
+	#var velocity = global_position.direction_to(nav_agent.get_next_path_position()) * move_speed * delta
+	#move_and_slide(velocity)
 	scream_timer -= delta
 	
 	

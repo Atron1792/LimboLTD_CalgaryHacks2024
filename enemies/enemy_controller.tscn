@@ -10,3 +10,6 @@ autostart = true
 
 [node name="eye_spawner" type="Timer" parent="."]
 autostart = true
+
+[connection signal="timeout" from="ghost_spawner" to="." method="_on_ghost_spawner_timeout"]
+[connection signal="timeout" from="eye_spawner" to="." method="_on_eye_spawner_timeout"]
