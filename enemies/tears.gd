@@ -1,13 +1,16 @@
-extends CharacterBody2D
+extends KinematicBody2D
 
-var move_speed:float = 8000.0
-@onready var nav_agent = $"NavigationAgent2D"
-@onready var sprite = $AnimatedSprite2D
+export var move_speed:float = 8000.0
+
+onready var nav_agent = $"NavigationAgent2D"
+onready var sprite = $AnimatedSprite2D
+
 var player
-var death_timer = 10
 var flashing_timer = 0.2
 var type_eye_enemy = false
 var has_scored = false
+
+export var death_timer = 10
 
 #1 = right, -1 = left
 var facing_direction = 1
@@ -34,6 +37,7 @@ func _ready():
 
 func actor_setup():
 	# Wait for the first physics frame so the NavigationServer can sync.
+	#TODO should also make navigation component?
 	await get_tree().physics_frame
 
 	# Now that the navigation map is no longer empty, set the movement target.

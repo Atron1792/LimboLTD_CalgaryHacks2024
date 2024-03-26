@@ -1,5 +1,5 @@
-extends CharacterBody2D
-\
+extends KinematicBody2D
+
 enum {
 	MOVE,
 	DIE
@@ -8,15 +8,25 @@ enum {
 var player = 0
 var tear_scene = load("res://enemies/tears.tscn")
 var type_eye_enemy = true
-var health = 4
 var has_scored = false
 var laser_scene = load("res://enemies/laser.tscn")
 var direction
 var state = MOVE
 
+export var health = 4
+export var tear_timer = 5	
+export var laser_timer = 2 
+
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	call_deferred("get_player")
+	
+	$tear_spawner.wait_time = tear_timer
+	$laser_rate.wait_time = laser_timer
+	
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -48,14 +58,14 @@ func die_function(delta):
 
 
 func _on_tear_spawn_timeout():
-	var tear = tear_scene.instantiate()
+	var tear = tear_scene.instance()
 	tear.position = position
 	get_parent().add_child(tear)
 	emit_signal("tears_spawned", +1)
 	#pass # Replace with function body.
 
 func _on_laser_rate_timeout():
-	var laser = laser_scene.instantiate()
+	var laser = laser_scene.instance()
 	laser.player = player
 	laser.position.x = position.x
 	laser.position.y = position.y - 40

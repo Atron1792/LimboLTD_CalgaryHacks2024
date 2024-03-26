@@ -1,138 +1,20 @@
-[gd_scene load_steps=20 format=3 uid="uid://c0y3dn6l7l0h7"]
+[gd_scene load_steps=2 format=2]
 
-[ext_resource type="Texture2D" uid="uid://da08sqdaprtpl" path="res://sprites/enemy_ghost.png" id="1_0t2hc"]
-[ext_resource type="Script" path="res://enemies/ghost.gd" id="1_6u2vs"]
-[ext_resource type="Texture2D" uid="uid://bemss4pj15u84" path="res://sprites/ghost_scream.png" id="3_d541j"]
-[ext_resource type="Script" path="res://enemies/scream_area.gd" id="4_0hm1r"]
-[ext_resource type="Script" path="res://enemies/ScreamCollision.gd" id="4_tt3hs"]
-[ext_resource type="AudioStream" uid="uid://rwxsn3ad8bla" path="res://sounds/ghost_scream.wav" id="6_v2kyj"]
+[ext_resource path="res://enemies/ghost.gd" type="Script" id=1]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_81muv"]
-size = Vector2(17, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_0etl0"]
-atlas = ExtResource("1_0t2hc")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_5sw45"]
-atlas = ExtResource("1_0t2hc")
-region = Rect2(32, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_e173c"]
-atlas = ExtResource("3_d541j")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_8qof6"]
-atlas = ExtResource("3_d541j")
-region = Rect2(32, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_42tar"]
-atlas = ExtResource("3_d541j")
-region = Rect2(64, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_vx2lw"]
-atlas = ExtResource("3_d541j")
-region = Rect2(96, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_mr4cd"]
-atlas = ExtResource("3_d541j")
-region = Rect2(128, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_wwaqc"]
-atlas = ExtResource("3_d541j")
-region = Rect2(160, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_t6a1v"]
-atlas = ExtResource("3_d541j")
-region = Rect2(192, 0, 32, 32)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_gvu10"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_0etl0")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_5sw45")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_e173c")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_8qof6")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_42tar")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_vx2lw")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_mr4cd")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_wwaqc")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_t6a1v")
-}],
-"loop": true,
-"name": &"screaming",
-"speed": 5.0
-}]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_0k204"]
-size = Vector2(17, 32)
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_vac0t"]
-radius = 48.0
-
-[node name="Ghost" type="CharacterBody2D"]
-scale = Vector2(2, 2)
-collision_layer = 2
-collision_mask = 3
-script = ExtResource("1_6u2vs")
+[node name="ghost" type="KinematicBody2D"]
+script = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -16.5)
-shape = SubResource("RectangleShape2D_81muv")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-texture_filter = 1
-position = Vector2(0, -17)
-sprite_frames = SubResource("SpriteFrames_gvu10")
-animation = &"screaming"
-autoplay = "default"
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 
-[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
-
-[node name="EnemyHurtbox" type="Area2D" parent="."]
-collision_layer = 2
-collision_mask = 9
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyHurtbox"]
-position = Vector2(0, -16)
-shape = SubResource("RectangleShape2D_0k204")
-
-[node name="TimeBetweenScreams" type="Timer" parent="."]
+[node name="scream_timer" type="Timer" parent="."]
 
 [node name="scream_area" type="Area2D" parent="."]
-collision_layer = 256
-script = ExtResource("4_0hm1r")
 
-[node name="ScreamCollision" type="CollisionShape2D" parent="scream_area"]
-position = Vector2(0.5, -16)
-shape = SubResource("CircleShape2D_vac0t")
-script = ExtResource("4_tt3hs")
+[node name="scream_collision" type="CollisionShape2D" parent="scream_area"]
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("6_v2kyj")
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 
-[connection signal="area_entered" from="EnemyHurtbox" to="." method="_on_enemy_hurtbox_area_entered"]
-[connection signal="timeout" from="TimeBetweenScreams" to="." method="_on_timer_timeout"]
-[connection signal="area_entered" from="scream_area" to="." method="_on_scream_area_area_entered"]
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
