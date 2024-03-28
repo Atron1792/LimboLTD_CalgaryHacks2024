@@ -6,10 +6,12 @@ enum {
 }
 
 var player = 0
-var tear_scene = load("res://enemies/tears.tscn")
+var tear_scene = preload("res://enemies/tears.tscn")
+#export(PackedScene) var tear_scene
 var type_eye_enemy = true
 var has_scored = false
 var laser_scene = load("res://enemies/laser.tscn")
+#export(PackedScene) var laser_scene
 var direction
 var state = MOVE
 
@@ -22,6 +24,9 @@ signal spawn_tear
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	#call_deferred("connect_to_parent")
+	
+	#tear_scene = tear_scene.load()#ResourceLoader.load(tear_scene)
+	#laser_scene = laser_scene.load()#ResourceLoader.load(laser_scene)
 	call_deferred("get_player")
 	
 	$tear_spawner.wait_time = tear_timer
@@ -73,8 +78,7 @@ func _on_enemy_hurtbox_area_entered(area):
 
 
 func _on_tear_spawner_timeout():
-	#var tear = tear_scene.instance()
-	#tear.position = position
-	#get_parent().add_child(tear)
-	emit_signal("spawn_tear", self)
-	print("spawn")
+	var tear = tear_scene.instance()
+	tear.position = position
+	get_parent().add_child(tear)
+	#emit_signal("spawn_tear", self)

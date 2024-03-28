@@ -1,25 +1,21 @@
-[gd_scene load_steps=4 format=3 uid="uid://duuj5cur5op7n"]
+[gd_scene load_steps=4 format=2]
 
-[ext_resource type="Script" path="res://enemies/laser.gd" id="1_i5c4x"]
-[ext_resource type="Texture2D" uid="uid://beh0db0ka00bi" path="res://sprites/projectiles.png" id="2_qaoa0"]
+[ext_resource path="res://sprites/projectiles.png" type="Texture" id=1]
+[ext_resource path="res://enemies/laser.gd" type="Script" id=2]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ph74r"]
-size = Vector2(26.6667, 5.33333)
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 15, 3 )
 
-[node name="Laser" type="Node2D"]
-scale = Vector2(3, 3)
-script = ExtResource("1_i5c4x")
+[node name="laser" type="Node2D"]
+scale = Vector2( 2, 2 )
+script = ExtResource( 2 )
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture_filter = 1
-texture = ExtResource("2_qaoa0")
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 1 )
 hframes = 2
 frame = 1
 
-[node name="laser_area" type="Area2D" parent="."]
-collision_layer = 4
+[node name="Area2D" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="laser_area"]
-shape = SubResource("RectangleShape2D_ph74r")
-
-[connection signal="area_entered" from="laser_area" to="." method="_on_area_2d_area_entered"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource( 1 )
