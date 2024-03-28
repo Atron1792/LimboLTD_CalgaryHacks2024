@@ -9,8 +9,6 @@ var player:KinematicBody2D
 var type_eye_enemy = false
 var has_scored = false
 
-
-
 enum {
 	MOVE,
 	DIE,
@@ -21,8 +19,6 @@ var state = MOVE
 var ghost_health = 2
 var death_timer = 1
 var scream_timer = 0
-
-
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
