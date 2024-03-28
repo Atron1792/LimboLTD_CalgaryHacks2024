@@ -21,6 +21,8 @@ var ghost_health = 2
 var death_timer = 1
 var scream_timer = 0
 
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	nav_agent.path_desired_distance = 4.0
@@ -35,9 +37,14 @@ func actor_setup():
 	#yield(get_tree(), "main_scene")
 	var tree = get_parent().get_parent().get_children()
 	
+	
+	
 	for i in tree:
 		if i.name == "Player":
 			player = i
+	
+	print(player)
+	print($"../../Player")
 	# Now that the navigation map is no longer empty, set the movement target.
 	#set_movement_target(player.position)
 
@@ -56,13 +63,25 @@ func set_movement_target(target: Vector2):
 	nav_agent.set_target_location(target)
 
 func move_action(delta):
+	
 	#TODO make navigation without agent???
-	print(player)
-	print(player.position)
-	#set_movement_target(player.position)
+	
+	#This is so dumb 
+	#print($"../../Player".position)
+	#print(player.position)
+	
+	set_movement_target($"../../Player".position)
+	
+	
 	#TODO movement
-	#var velocity = global_position.direction_to(nav_agent.get_next_path_position()) * move_speed * delta
-	#move_and_slide(velocity)
+	var velocity = global_position.direction_to(nav_agent.get_next_location()) * move_speed * delta
+	
+	print(global_position)
+	print($"../../Player".position)
+	print(nav_agent.get_next_location())
+	print(velocity)
+	
+	move_and_slide(velocity)
 	scream_timer -= delta
 	
 	
