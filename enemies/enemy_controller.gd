@@ -140,3 +140,8 @@ func _on_ghost_spawner_timeout():
 	spawn_enemy(ghost_scene, randi() % 800, randi() % 600)
 	#add_child(ghost)
 	pass # Replace with function body.
+
+func _on_tear_spawn(eye):
+	print("good")
+	spawn_enemy(ghost_scene, eye.position, eye.position)
+	

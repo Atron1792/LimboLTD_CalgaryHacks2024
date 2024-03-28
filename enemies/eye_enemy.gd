@@ -17,10 +17,11 @@ export var health = 4
 export var tear_timer = 5	
 export var laser_timer = 2 
 
-
+signal spawn_tear
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	call_deferred("connect_to_parent")
 	call_deferred("get_player")
 	
 	$tear_spawner.wait_time = tear_timer
@@ -36,6 +37,8 @@ func _process(delta):
 		DIE:
 			die_function(delta)
 	
+func connect_to_parent():
+	get_parent().connect("spawn_tear", get_parent(), "_on_tear_spawn", [position2D])
 
 func get_player():
 	player = get_parent().player
@@ -70,7 +73,8 @@ func _on_enemy_hurtbox_area_entered(area):
 
 
 func _on_tear_spawner_timeout():
-	var tear = tear_scene.instance()
-	tear.position = position
-	get_parent().add_child(tear)
-	emit_signal("tears_spawned", +1)
+	#var tear = tear_scene.instance()
+	#tear.position = position
+	#get_parent().add_child(tear)
+	emit_signal("spawn_tear", self)
+	print("spawn")

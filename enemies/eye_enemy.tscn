@@ -28,6 +28,9 @@ extents = Vector2( 20, 25.5 )
 [node name="eye_enemy" type="KinematicBody2D"]
 scale = Vector2( 1.5, 1.5 )
 script = ExtResource( 1 )
+health = null
+tear_timer = null
+laser_timer = null
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 0, -30 )
@@ -39,7 +42,6 @@ frames = SubResource( 3 )
 autostart = true
 
 [node name="laser_rate" type="Timer" parent="."]
-autostart = true
 
 [node name="enemy_hurtbox" parent="." instance=ExtResource( 2 )]
 

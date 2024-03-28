@@ -108,7 +108,7 @@ func animations_moving(input_vector):
 				sprite.play("idle_right")
 			DOWN:
 				sprite.scale.x = player_size
-				sprite.play("idle_down")
+				.play("idle_down")
 	else:
 		match direction:
 			RIGHT:
