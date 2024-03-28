@@ -43,8 +43,8 @@ func actor_setup():
 		if i.name == "Player":
 			player = i
 	
-	print(player)
-	print($"../../Player")
+	#print(player)
+	#print($"../../Player")
 	# Now that the navigation map is no longer empty, set the movement target.
 	#set_movement_target(player.position)
 

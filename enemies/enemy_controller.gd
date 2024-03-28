@@ -62,7 +62,7 @@ func get_player():
 	#player = get_tree().root.find_child("Player", true)
 	#TODO this is unsafe, find way to find player
 	player = get_parent().get_child(2)
-	print(player)
+	#print(player)
 
 
 	
@@ -121,7 +121,6 @@ func spawn_enemy(enemy_scene, position_x, position_y):
 	
 
 func _on_eye_spawner_timeout():
-	print("enemy spawned")
 	if not block_eye_spawn:
 		var _eye = eye_scene.instance()
 		
@@ -135,7 +134,6 @@ func _on_placeholder_spawn_timeout():
 	pass # Replace with function body.
 	
 func _on_ghost_spawner_timeout():
-	print("enemy spawned")
 	#spawn_enemy(ghost_scene, 300, 300)
 	#var ghost = ghost_scene.instance()
 	#print("spaning ghost")

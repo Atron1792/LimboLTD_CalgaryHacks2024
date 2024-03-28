@@ -36,12 +36,11 @@ func _ready():
 	call_deferred("actor_setup")
 
 func actor_setup():
-	# Wait for the first physics frame so the NavigationServer can sync.
-	#TODO should also make navigation component?
-	await get_tree().physics_frame
+	var tree = get_parent().get_parent().get_children()
 
-	# Now that the navigation map is no longer empty, set the movement target.
-	set_movement_target(player.position)
+	for i in tree:
+		if i.name == "Player":
+			player = i
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
