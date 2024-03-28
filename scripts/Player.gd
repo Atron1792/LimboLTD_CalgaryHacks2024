@@ -60,10 +60,10 @@ func move_function(delta):
 	#TODO change to shoot action?
 	if Input.is_action_pressed("ui_accept") and shoot_timer < 0 and ammo > 0 :
 		shoot_bullet()
-		shoot_timer = 0.3
+		shoot_timer = 0.25
 		ammo -= 1
 	elif ammo == 0 : 
-		shoot_timer = 2
+		shoot_timer = 1
 		ammo = 10
 	
 	#decide direction
