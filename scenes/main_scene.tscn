@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Player/player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://sprites/bricks wall.png" type="Texture" id=2]
 [ext_resource path="res://enemies/enemy_controller.tscn" type="PackedScene" id=3]
+[ext_resource path="res://sounds/limboltdbutwithatimesignature.mp3" type="AudioStream" id=4]
 
 [sub_resource type="ConvexPolygonShape2D" id=4]
 points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
@@ -86,3 +87,7 @@ polygon = PoolVector2Array( -15, 29, 885, 25, 887, 711, -11, 711, -14, 32, 39, 6
 
 [node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="."]
 navpoly = SubResource( 6 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+autoplay = true

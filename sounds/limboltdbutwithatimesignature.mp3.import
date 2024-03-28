@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/limboltdbutwithatimesignature.mp3-e2d3219d08232f569e7e0429f83812f3.mp3str"
+
+[deps]
+
+source_file="res://sounds/limboltdbutwithatimesignature.mp3"
+dest_files=[ "res://.import/limboltdbutwithatimesignature.mp3-e2d3219d08232f569e7e0429f83812f3.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
