@@ -10,6 +10,7 @@ export var player_size = 1.5
 var bullet_scene = load("res://Player/bullet.tscn")
 
 var score = 0
+var ammo = 10
 
 enum {
 	MOVE,
@@ -53,9 +54,13 @@ func move_function(delta):
 	
 	shoot_timer -= delta
 	#TODO change to shoot action?
-	if Input.is_action_pressed("ui_accept") and shoot_timer < 0:
+	if Input.is_action_pressed("ui_accept") and shoot_timer < 0 and ammo > 0 :
 		shoot_bullet()
-		shoot_timer = 0.2
+		shoot_timer = 0.3
+		ammo -= 1
+	elif ammo == 0 : 
+		shoot_timer = 2
+		ammo = 10
 	
 	#decide direction
 	#priority on left/right
