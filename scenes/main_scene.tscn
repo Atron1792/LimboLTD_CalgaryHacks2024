@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Player/player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://sprites/bricks wall.png" type="Texture" id=2]
@@ -59,6 +59,11 @@ outlines = [ PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 ) ]
 1/shapes = [  ]
 1/z_index = 0
 
+[sub_resource type="NavigationPolygon" id=6]
+vertices = PoolVector2Array( 765, 33, 764, 573, 34, 574, 34, 36 )
+polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
+outlines = [ PoolVector2Array( 34, 36, 34, 574, 764, 573, 765, 33 ) ]
+
 [node name="main_scene" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -78,3 +83,6 @@ collision_mask = 9
 polygon = PoolVector2Array( -15, 29, 885, 25, 887, 711, -11, 711, -14, 32, 39, 62, 35, 672, 839, 676, 839, 62, 40, 61 )
 
 [node name="enemy_controller" parent="." instance=ExtResource( 3 )]
+
+[node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="."]
+navpoly = SubResource( 6 )

@@ -2,7 +2,7 @@ extends KinematicBody2D
 
 var move_speed:float = 8000.0
 onready var nav_agent = $"NavigationAgent2D"
-onready var sprite = $AnimatedSprite2D
+onready var sprite = $AnimatedSprite
 onready var scream_area = $scream_area
 
 var player:KinematicBody2D
@@ -75,11 +75,6 @@ func move_action(delta):
 	
 	#TODO movement
 	var velocity = global_position.direction_to(nav_agent.get_next_location()) * move_speed * delta
-	
-	print(global_position)
-	print($"../../Player".position)
-	print(nav_agent.get_next_location())
-	print(velocity)
 	
 	move_and_slide(velocity)
 	scream_timer -= delta
