@@ -39,11 +39,6 @@ func actor_setup():
 	for i in tree:
 		if i.name == "Player":
 			player = i
-	
-	#print(player)
-	#print($"../../Player")
-	# Now that the navigation map is no longer empty, set the movement target.
-	#set_movement_target(player.position)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -61,24 +56,13 @@ func set_movement_target(target: Vector2):
 
 func move_action(delta):
 	
-	#TODO make navigation without agent???
-	
-	#This is so dumb 
-	#print($"../../Player".position)
-	#print(player.position)
-	#print("new_ref", $"../../Player".position)
-	#print("old_ref",.position)
-	
 	set_movement_target(get_parent().player.position)
-	
 	
 	#TODO movement
 	var velocity = global_position.direction_to(nav_agent.get_next_location()) * move_speed * delta
 	
 	move_and_slide(velocity)
 	scream_timer -= delta
-	
-	
 	
 		
 func scream_action(delta):
@@ -95,6 +79,7 @@ func scream_action(delta):
 		sprite.animation = "default"
 
 func die_action(delta):
+	modulate = Color(1,0.5,0.5)
 	if not has_scored:
 		get_parent().player.score += 1
 		has_scored = true
