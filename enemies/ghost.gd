@@ -100,7 +100,7 @@ func scream_action(delta):
 
 func die_action(delta):
 	if not has_scored:
-		player.score += 1
+		get_parent().player.score += 1
 		has_scored = true
 	death_timer -= delta
 	if (death_timer <= 0):
