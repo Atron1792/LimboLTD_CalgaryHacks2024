@@ -10,6 +10,7 @@ var type_eye_enemy = false
 var has_scored = false
 
 
+
 enum {
 	MOVE,
 	DIE,
@@ -28,7 +29,7 @@ func _ready():
 	nav_agent.path_desired_distance = 4.0
 	nav_agent.target_desired_distance = 4.0
 	
-	call_deferred("get_player")
+	#call_deferred("get_player")
 	#call_deferred("actor_setup")
 
 func actor_setup():
@@ -69,8 +70,10 @@ func move_action(delta):
 	#This is so dumb 
 	#print($"../../Player".position)
 	#print(player.position)
+	#print("new_ref", $"../../Player".position)
+	#print("old_ref",.position)
 	
-	set_movement_target($"../../Player".position)
+	set_movement_target(get_parent().player.position)
 	
 	
 	#TODO movement

@@ -4,6 +4,7 @@ var placeholder_enemy_scene = load("res://scenes/mob.tscn")
 var eye_scene = load("res://enemies/eye_enemy.tscn")
 var ghost_scene = load("res://enemies/ghost.tscn")
 
+var tear_scene = load("res://enemies/tears.tscn")
 
 
 onready var timer = 2
@@ -12,6 +13,9 @@ onready var eye_timer = $eye_spawner
 
 export var eye_starting_time = 2
 export var ghost_starting_time = 2
+
+export var player_export:NodePath
+
 
 var map
 

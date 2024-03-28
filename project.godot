@@ -22,6 +22,10 @@ config/icon="res://icon.png"
 
 window/size/width=800
 
+[global]
+
+default=false
+
 [input]
 
 ui_left={

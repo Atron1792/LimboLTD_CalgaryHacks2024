@@ -3,7 +3,7 @@ extends KinematicBody2D
 export var move_speed:float = 8000.0
 
 onready var nav_agent = $"NavigationAgent2D"
-onready var sprite = $AnimatedSprite2D
+onready var sprite = $AnimatedSprite
 
 var player
 var flashing_timer = 0.2
@@ -55,15 +55,16 @@ func _process(delta):
 	sprite.scale.x = facing_direction
 
 func set_movement_target(target: Vector2):
-	nav_agent.target_position = target
+	nav_agent.set_target_location(target)
 
 func move_action(delta):
-	set_movement_target(player.position)
+	set_movement_target(get_parent().player.position)
 	
-	velocity = global_position.direction_to(nav_agent.get_next_path_position()) * move_speed * delta
-	move_and_slide()
+	var velocity = global_position.direction_to(nav_agent.get_next_location()) * move_speed * delta
 	
-	if position.x < player.position.x:
+	move_and_slide(velocity)
+	
+	if position.x < get_parent().player.position.x:
 		facing_direction = -1
 	else:
 		facing_direction = 1
@@ -113,4 +114,8 @@ func _on_animated_sprite_2d_animation_finished():
 	#sprite.animation = "dead"
 	#	#sprite.play()
 	#print(sprite.animation)
+	pass # Replace with function body.
+
+
+func _on_enemy_hitbox_area_entered(area):
 	pass # Replace with function body.
