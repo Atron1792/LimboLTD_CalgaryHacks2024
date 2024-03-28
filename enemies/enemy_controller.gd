@@ -58,10 +58,17 @@ func setup_navserver():
 	yield(get_tree(), "physics_frame")
 
 func get_player():
+	var tree = get_parent().get_children()
+	
+	
+	
+	for i in tree:
+		if i.name == "Player":
+			player = i
 
 	#player = get_tree().root.find_child("Player", true)
 	#TODO this is unsafe, find way to find player
-	player = get_parent().get_child(2)
+	#player = get_parent().get_child(2)
 	#print(player)
 
 
@@ -140,3 +147,8 @@ func _on_ghost_spawner_timeout():
 	spawn_enemy(ghost_scene, randi() % 800, randi() % 600)
 	#add_child(ghost)
 	pass # Replace with function body.
+
+func _on_tear_spawn(eye):
+	print("good")
+	spawn_enemy(ghost_scene, eye.position, eye.position)
+	

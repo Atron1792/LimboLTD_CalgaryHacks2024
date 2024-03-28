@@ -46,5 +46,6 @@ shape = SubResource( 4 )
 
 [connection signal="timeout" from="tear_spawner" to="." method="_on_tear_spawner_timeout"]
 [connection signal="timeout" from="laser_rate" to="." method="_on_laser_rate_timeout"]
+[connection signal="area_entered" from="enemy_hurtbox" to="." method="_on_enemy_hurtbox_area_entered"]
 
 [editable path="enemy_hurtbox"]
