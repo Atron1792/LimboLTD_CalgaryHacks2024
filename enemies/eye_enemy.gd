@@ -21,7 +21,7 @@ signal spawn_tear
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	call_deferred("connect_to_parent")
+	#call_deferred("connect_to_parent")
 	call_deferred("get_player")
 	
 	$tear_spawner.wait_time = tear_timer
@@ -38,7 +38,7 @@ func _process(delta):
 			die_function(delta)
 	
 func connect_to_parent():
-	get_parent().connect("spawn_tear", get_parent(), "_on_tear_spawn", [position2D])
+	get_parent().connect("spawn_tear", get_parent(), "_on_tear_spawn", [position])
 
 func get_player():
 	player = get_parent().player

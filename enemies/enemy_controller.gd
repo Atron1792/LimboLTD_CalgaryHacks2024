@@ -58,10 +58,17 @@ func setup_navserver():
 	yield(get_tree(), "physics_frame")
 
 func get_player():
+	var tree = get_parent().get_children()
+	
+	
+	
+	for i in tree:
+		if i.name == "Player":
+			player = i
 
 	#player = get_tree().root.find_child("Player", true)
 	#TODO this is unsafe, find way to find player
-	player = get_parent().get_child(2)
+	#player = get_parent().get_child(2)
 	#print(player)
 
 

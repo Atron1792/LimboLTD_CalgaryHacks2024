@@ -28,8 +28,8 @@ func _ready():
 	nav_agent.path_desired_distance = 4.0
 	nav_agent.target_desired_distance = 4.0
 	
-	#call_deferred("get_player")
-	call_deferred("actor_setup")
+	call_deferred("get_player")
+	#call_deferred("actor_setup")
 
 func actor_setup():
 	# Wait for the first physics frame so the NavigationServer can sync.
