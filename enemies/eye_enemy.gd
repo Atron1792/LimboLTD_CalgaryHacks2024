@@ -57,13 +57,6 @@ func die_function(delta):
 	queue_free()
 
 
-func _on_tear_spawn_timeout():
-	var tear = tear_scene.instance()
-	tear.position = position
-	get_parent().add_child(tear)
-	emit_signal("tears_spawned", +1)
-	#pass # Replace with function body.
-
 func _on_laser_rate_timeout():
 	var laser = laser_scene.instance()
 	laser.player = player
@@ -74,3 +67,10 @@ func _on_laser_rate_timeout():
 	
 func _on_enemy_hurtbox_area_entered(area):
 	health -= 1
+
+
+func _on_tear_spawner_timeout():
+	var tear = tear_scene.instance()
+	tear.position = position
+	get_parent().add_child(tear)
+	emit_signal("tears_spawned", +1)

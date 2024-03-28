@@ -13,6 +13,7 @@ onready var eye_timer = $eye_spawner
 export var eye_starting_time = 2
 export var ghost_starting_time = 2
 
+var map
 
 
 var game_won = false
@@ -32,13 +33,36 @@ func _ready():
 	eye_timer.wait_time = eye_starting_time
 	ghost_timer.wait_time = ghost_starting_time
 	call_deferred("get_player")
+	#call_deferred("setup_navserver")
+	
+	
+
+#From tutorial. Bad
+func setup_navserver():
+
+	# create a new navigation map
+	map = Navigation2DServer.map_create()
+	Navigation2DServer.map_set_active(map, true)
+
+	# create a new navigation region and add it to the map
+	var region = Navigation2DServer.region_create()
+	Navigation2DServer.region_set_transform(region, Transform())
+	Navigation2DServer.region_set_map(region, map)
+
+	# sets navigation mesh for the region
+	var navigation_poly = NavigationMesh.new()
+	navigation_poly = $Navmesh.navpoly
+	Navigation2DServer.region_set_navpoly(region, navigation_poly)
+
+	# wait for Navigation2DServer sync to adapt to made changes
+	yield(get_tree(), "physics_frame")
 
 func get_player():
 
 	#player = get_tree().root.find_child("Player", true)
 	#TODO this is unsafe, find way to find player
 	player = get_parent().get_child(2)
-	print(player)
+	#print(player)
 
 
 	
@@ -97,7 +121,6 @@ func spawn_enemy(enemy_scene, position_x, position_y):
 	
 
 func _on_eye_spawner_timeout():
-	print("enemy spawned")
 	if not block_eye_spawn:
 		var _eye = eye_scene.instance()
 		
@@ -111,7 +134,6 @@ func _on_placeholder_spawn_timeout():
 	pass # Replace with function body.
 	
 func _on_ghost_spawner_timeout():
-	print("enemy spawned")
 	#spawn_enemy(ghost_scene, 300, 300)
 	#var ghost = ghost_scene.instance()
 	#print("spaning ghost")
