@@ -31,6 +31,11 @@ var shoot_timer = 0
 var invincibility_timer = 0
 var frozen_timer = 0.5
 
+func _ready():
+	sprite.scale.x = player_size
+	sprite.scale.y = player_size
+
+
 func get_input():
 	#var input_direction = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down").normalized()
 	return  Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down").normalized()
@@ -47,7 +52,6 @@ func _physics_process(delta):
 
 func move_function(delta):
 	var input_vector = get_input()
-	
 	
 	var velocity = input_vector * speed * delta
 	move_and_slide(velocity)
@@ -95,39 +99,25 @@ func move_function(delta):
 		state = DIE
 
 
-
 func animations_moving(input_vector):
 	
-	sprite.scale.y = player_size
 	
 	if input_vector == Vector2.ZERO:
-		match direction:
-			RIGHT:
-				sprite.scale.x = player_size
-				sprite.play("idle_right")
-			UP:
-				sprite.scale.x = player_size
-				sprite.play("idle_up")
-			LEFT:
-				sprite.scale.x = -player_size
-				sprite.play("idle_right")
-			DOWN:
-				sprite.scale.x = player_size
-				sprite.play("idle_down")
+		sprite.stop()
 	else:
 		match direction:
 			RIGHT:
 				sprite.scale.x = player_size
-				sprite.play("walk_right")
+				sprite.play("side")
 			UP:
 				sprite.scale.x = player_size
-				sprite.play("walk_up")
+				sprite.play("up")
 			LEFT:
 				sprite.scale.x = -player_size
-				sprite.play("walk_right")
+				sprite.play("side")
 			DOWN:
 				sprite.scale.x = player_size
-				sprite.play("walk_down")
+				sprite.play("down")
 
 func frozen_function(delta):
 	#TODO fix reliability issues
