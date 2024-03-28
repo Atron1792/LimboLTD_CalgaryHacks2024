@@ -36,10 +36,8 @@ playing = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 
 [node name="tear_spawner" type="Timer" parent="."]
-autostart = true
 
 [node name="laser_rate" type="Timer" parent="."]
-autostart = true
 
 [node name="enemy_hurtbox" parent="." instance=ExtResource( 2 )]
 
