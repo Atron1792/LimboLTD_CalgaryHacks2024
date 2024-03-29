@@ -25,6 +25,7 @@ func _ready():
 	nav_agent.path_desired_distance = 4.0
 	nav_agent.target_desired_distance = 4.0
 	
+	sprite.play("idle")
 	#call_deferred("get_player")
 	#call_deferred("actor_setup")
 
@@ -66,17 +67,18 @@ func move_action(delta):
 	
 		
 func scream_action(delta):
-	sprite.animation = "screaming"
+	#sprite.animation = "screaming"
+	sprite.play("scream")
 	if sprite.frame == 3:
-		var scream_sound = $AudioStreamPlayer
+		var scream_sound = $AudioStreamPlayer2D
 		scream_sound.play()
-		scream_area.enabled = true
+		#scream_area.enabled = true
 		modulate = Color(0.7,0.7,1)
 	if(sprite.frame == 6):
 		state = MOVE
 		modulate = Color(1,1,1)
-		scream_area.enabled = false
-		sprite.animation = "default"
+		#scream_area.enabled = false
+		sprite.play("idle")
 
 func die_action(delta):
 	modulate = Color(1,0.5,0.5)
@@ -103,6 +105,9 @@ func _on_timer_timeout():
 
 
 func _on_scream_area_area_entered(area):
+	
+	
+	print("screaming")
 	if state == MOVE and scream_timer < 0:
 		scream_timer = 2
 		state = SCREAM
