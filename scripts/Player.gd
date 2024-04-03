@@ -89,7 +89,7 @@ func move_function(delta):
 	if invincibility_timer > 0:
 		# Set the color of the sprite to red
 		sprite.modulate = Color(1, 0, 0)  # Red
-		var hit_sound = $AudioStreamPlayer
+		var hit_sound = $AudioStreamPlayer2D
 		hit_sound.play()
 		invincibility_timer -= delta
 		pass
@@ -133,7 +133,8 @@ func frozen_function(delta):
 func dead_function():
 	#Death animation
 	health_system.visible = false
-	health_system.top_level = false
+	#TODO test health
+	#health_system.top_level = false
 	get_parent().find_child("Game_over").visible = true
 	pass
 
@@ -154,13 +155,13 @@ func _on_hurtbox_area_entered(_area):
 	#area.get_parent
 	#could prob do this through layers and masks
 	print(_area.name)
-	if(_area.name == "scream_area"):
-		if _area.enabled:
-			state = FROZEN
+	if(_area.name == "scream_hitbox"):
+		state = FROZEN
 	else:
 		#print("almost damage = ", invincibility_timer)
 		if invincibility_timer <= 0:
 			print("damage")
 			health_system.health -= 1
 			invincibility_timer = 1
-	pass # Replace with function body.
+
+

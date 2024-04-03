@@ -12,6 +12,7 @@ func _ready():
 	health0.frame = 0
 	health1.frame = 0
 	health2.frame = 0
+	set_as_toplevel(true)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):

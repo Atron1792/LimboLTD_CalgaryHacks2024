@@ -1,9 +1,12 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://enemies/ghost.gd" type="Script" id=1]
 [ext_resource path="res://sprites/enemy_ghost.png" type="Texture" id=2]
 [ext_resource path="res://enemies/hitboxes_and_hurtboxes/enemy_hurtbox.tscn" type="PackedScene" id=3]
 [ext_resource path="res://sprites/ghost_scream.png" type="Texture" id=4]
+
+[sub_resource type="RectangleShape2D" id=13]
+extents = Vector2( 10.25, 16.75 )
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 2 )
@@ -55,7 +58,10 @@ animations = [ {
 } ]
 
 [sub_resource type="CircleShape2D" id=4]
-radius = 64.002
+radius = 45.0073
+
+[sub_resource type="CircleShape2D" id=14]
+radius = 86.552
 
 [sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 15, 30 )
@@ -65,21 +71,32 @@ scale = Vector2( 2, 2 )
 script = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0.25, -16.75 )
+shape = SubResource( 13 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 0.5, -16.5 )
 frames = SubResource( 3 )
 animation = "scream"
+frame = 1
 playing = true
 
 [node name="scream_timer" type="Timer" parent="."]
 
 [node name="scream_area" type="Area2D" parent="."]
+position = Vector2( 0, -15.687 )
 collision_layer = 256
+collision_mask = 16
 
 [node name="scream_collision" type="CollisionShape2D" parent="scream_area"]
-position = Vector2( 0.5, -18 )
 shape = SubResource( 4 )
+
+[node name="scream_hitbox" type="Area2D" parent="."]
+position = Vector2( 0, -15 )
+collision_layer = 512
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="scream_hitbox"]
+shape = SubResource( 14 )
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 
@@ -93,6 +110,7 @@ position = Vector2( 1, -34 )
 shape = SubResource( 5 )
 
 [connection signal="area_entered" from="scream_area" to="." method="_on_scream_area_area_entered"]
+[connection signal="body_entered" from="scream_area" to="." method="_on_scream_area_body_entered"]
 [connection signal="area_entered" from="enemy_hurtbox" to="." method="_on_enemy_hurtbox_area_entered"]
 
 [editable path="enemy_hurtbox"]

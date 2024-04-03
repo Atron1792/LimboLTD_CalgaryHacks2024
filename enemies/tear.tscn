@@ -27,12 +27,13 @@ extents = Vector2( 12.5, 17 )
 extents = Vector2( 9, 10 )
 
 [node name="tear" type="KinematicBody2D"]
+scale = Vector2( 0.8, 0.8 )
+collision_layer = 3
 script = ExtResource( 2 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( -1, -16 )
 frames = SubResource( 3 )
-frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
